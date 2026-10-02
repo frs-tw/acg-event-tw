@@ -14,6 +14,8 @@ const md = dt => `${dt.getMonth() + 1}/${String(dt.getDate()).padStart(2, "0")}`
 const quarterOf = dt => `${dt.getFullYear()} Q${Math.floor(dt.getMonth() / 3) + 1}`;
 const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 const $ = id => document.getElementById(id);
+// 活動的短代碼（網址 #縣市/代碼 用）：以縣市＋名稱算雜湊，名稱重複時再加開始日
+const hash = str => { let h = 2166136261; for (const ch of str) h = Math.imul(h ^ ch.codePointAt(0), 16777619); return (h >>> 0).toString(36); };
 const getJSON = url => fetch(url).then(r => { if (!r.ok) throw new Error(`${url} ${r.status}`); return r.json(); });
 
 const today = new Date(); today.setHours(0, 0, 0, 0);
@@ -30,6 +32,10 @@ let city = null;                              // 目前的縣市分頁（一次�
 Promise.all([getJSON("data/meta.json"), getJSON("data/places.json"), getJSON("data/events.json")])
   .then(([meta, places, events]) => {
     META = meta; PLACES = places;
+    // 代碼用全部活動計算，活動結束或被篩掉時其他活動的代碼不會跟著變
+    const dup = {};
+    events.forEach(e => { const k = `${e.city}|${e.title}`; dup[k] = (dup[k] || 0) + 1; });
+    events.forEach(e => { const k = `${e.city}|${e.title}`; e.id = hash(dup[k] > 1 ? `${k}|${e.start}` : k); });
     // 沒有日期的活動不顯示；已在預設視窗之前結束的也不顯示
     EVENTS = events.filter(e => e.start && e.end && d(e.end) >= VIEW0);
 
@@ -56,9 +62,10 @@ Promise.all([getJSON("data/meta.json"), getJSON("data/places.json"), getJSON("da
     setupFilterScroll();
     setupPanelDrag();
     renderAbout();
-    sel = defaultSelection(visible());
+    sel = initialSelection();
     render();
     zoomToMonths(3, VIEW0);
+    if (sel) { revealBar(sel); const row = document.querySelector(`.tl-row[data-i="${EVENTS.indexOf(sel)}"]`); if (row) revealRow(row); }
   })
   .catch(() => {
     $("insp-body").innerHTML = `<div class="i-empty">讀不到資料。直接雙擊開啟 index.html 會被瀏覽器擋下，請在資料夾執行 python -m http.server 後用 localhost 開啟。</div>`;
@@ -66,19 +73,38 @@ Promise.all([getJSON("data/meta.json"), getJSON("data/places.json"), getJSON("da
 
 /* ---------- 縣市分頁 ---------- */
 
-// 分頁順序照 meta.json；網址 #taipei 可直接開某縣市，否則用上次看的，再不然用第一個有活動的
+// 網址格式：#縣市 或 #縣市/活動代碼（分享連結）。活動代碼找不到或目前不顯示時當作沒有
+const parseHash = () => { const [c = "", id = ""] = decodeURIComponent(location.hash.slice(1)).split("/"); return { c, id }; };
+const findEvent = id => (id && EVENTS.find(e => e.id === id && shown(e))) || null;
+const setHash = h => { if (location.hash.slice(1) !== h) history.replaceState(null, "", `#${h}`); };
+
+// 分頁順序照 meta.json；網址的活動 > 網址的縣市 > 上次看的 > 第一個有活動的
 function initCity() {
   const codes = Object.keys(META.cities);
-  let saved = null;
-  try { saved = localStorage.getItem("acg-city"); } catch (e) {}
-  const fromHash = location.hash.slice(1);
-  city = [fromHash, saved].find(c => codes.includes(c))
+  let saved = null, savedEv = null;
+  try { saved = localStorage.getItem("acg-city"); savedEv = localStorage.getItem("acg-event"); } catch (e) {}
+  const { c: fromHash, id } = parseHash();
+  const linked = findEvent(id);
+  city = linked?.city || [fromHash, saved, findEvent(savedEv)?.city].find(c => codes.includes(c))
     || codes.find(c => EVENTS.some(e => e.city === c)) || codes[0];
   renderCityTabs();
   window.addEventListener("hashchange", () => {
-    const c = location.hash.slice(1);
-    if (codes.includes(c) && c !== city) switchCity(c);
+    const { c, id } = parseHash(), e = findEvent(id);
+    if (e) { if (e.city !== city) switchCity(e.city); select(e); }
+    else if (codes.includes(c) && c !== city) switchCity(c);
+    else setHash(sel && sel.id === id ? `${city}/${id}` : city); // 錯誤的代碼：改回縣市
   });
+}
+
+// 開頁時選哪個活動：網址的活動 > 上次在這個縣市選的 > 預設；選到的活動同步到網址
+function initialSelection() {
+  const { id } = parseHash();
+  let savedEv = null;
+  try { savedEv = localStorage.getItem("acg-event"); } catch (e) {}
+  const list = visible();
+  const e = [findEvent(id), findEvent(savedEv)].find(e => e && list.includes(e));
+  setHash(e ? `${city}/${e.id}` : city);
+  return e || defaultSelection(list);
 }
 
 function renderCityTabs() {
@@ -93,7 +119,7 @@ function renderCityTabs() {
 function switchCity(c) {
   city = c;
   try { localStorage.setItem("acg-city", c); } catch (e) {}
-  if (location.hash.slice(1) !== c) history.replaceState(null, "", `#${c}`);
+  setHash(c);
   filter.place.clear();
   sel = null;
   renderCityTabs();
@@ -295,10 +321,13 @@ function defaultSelection(list) {
   return ongoing[0] || list.find(e => d(e.start) > today) || list[0] || null;
 }
 
+// 使用者選的活動寫進網址（可分享）並記在瀏覽器，下次開頁會回到它
 function select(e, { focus = false, reveal = true } = {}) {
   sel = e;
   render();
   if (!e) return;
+  setHash(`${city}/${e.id}`);
+  try { localStorage.setItem("acg-event", e.id); } catch (err) {}
   const row = document.querySelector(`.tl-row[data-i="${EVENTS.indexOf(e)}"]`);
   if (focus) row?.querySelector(".tl-name")?.focus({ preventScroll: true });
   if (row) revealRow(row);
@@ -345,7 +374,11 @@ function step(n) {
 
 function render() {
   LIST = visible();
-  if (!LIST.includes(sel)) sel = defaultSelection(LIST);
+  if (!LIST.includes(sel)) {
+    // 選的活動被篩掉了：改回預設選取，網址也拿掉活動代碼，避免分享出去的連結指向看不到的活動
+    sel = defaultSelection(LIST);
+    if (parseHash().id) setHash(city);
+  }
   renderTimeline(LIST);
   renderInspector(sel);
   const cm = META.cities[city] || {};
