@@ -71,4 +71,4 @@ ACG-Site/
 - 外部資源只用 Google Fonts；其他都放在本專案內。
 - 本機預覽：直接雙擊 `index.html` 讀不到 `data/`，要在專案資料夾跑 `python -m http.server 8000` 再開 http://localhost:8000。
 - 部署：整個資料夾就是網站根目錄，可直接放 GitHub Pages（repo：`frs-tw/acg-event-tw`）、Cloudflare Pages 或 Netlify，不需要建置。
-- 手機與直拿的平板（螢幕寬度不到 1000px）會用 1000px 寬排版縮小顯示桌面版，門檻在 `index.html` 開頭的 `DESKTOP_W`。
+- 手機與直拿的平板（螢幕寬度不到 1000px）用 66% 縮放顯示（等同電腦瀏覽器縮放 66%），比例在 `index.html` 開頭的 `SCALE`。
