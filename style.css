@@ -343,9 +343,11 @@ body.resizing-v .map { pointer-events: none; }
 .map-head[aria-expanded="true"] .about-arrow { transform: rotate(90deg); }
 .inspector.info-collapsed .insp-body { flex: none; }
 .inspector.info-collapsed .insp-body > :not(#info-head) { display: none; }
-.inspector.info-collapsed .map-pane { flex: 1; display: flex; flex-direction: column; min-height: 0; }
-.inspector.info-collapsed .map-pane .hsplit { display: none; }
-.inspector.info-collapsed .map:not([hidden]) { flex: 1; height: auto; min-height: 120px; }
+@media (min-width: 901px) {
+  .inspector.info-collapsed .map-pane { flex: 1; display: flex; flex-direction: column; min-height: 0; }
+  .inspector.info-collapsed .map-pane .hsplit { display: none; }
+  .inspector.info-collapsed .map:not([hidden]) { flex: 1; height: auto; min-height: 120px; }
+}
 
 /* 直版（900px 以下）：時間軸固定高度、內部捲動，下緣拖曳條可調整高度 */
 .tl-split { display: none; border-radius: 0 0 6px 6px; }
@@ -355,7 +357,3 @@ body.resizing-v .map { pointer-events: none; }
   .tl-split { display: block; }
 }
 
-/* 直版：資訊收起時地圖滿版（扣掉地圖標題列的高度） */
-@media (max-width: 900px) {
-  .inspector.info-collapsed .map:not([hidden]) { flex: none; height: calc(100vh - 40px); height: calc(100dvh - 40px); }
-}

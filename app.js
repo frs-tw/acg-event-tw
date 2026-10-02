@@ -378,10 +378,6 @@ function toggleInfo() {
   infoCollapsed = !infoCollapsed;
   try { localStorage.setItem("acg-info-collapsed", infoCollapsed ? "1" : "0"); } catch (e) {}
   applyInfoCollapsed();
-  // 直版收起資訊時，地圖變成滿版高度，順便捲到地圖
-  if (infoCollapsed && matchMedia("(max-width: 900px)").matches) {
-    setTimeout(() => $("map-head")?.scrollIntoView({ block: "start", behavior: "smooth" }), 50);
-  }
 }
 
 function renderInspector(e) {
@@ -588,7 +584,8 @@ const MAP_MIN = 120, MAP_DEFAULT = 220, INSP_BODY_MIN = 160;
 function setupMapSplit() {
   const sp = $("map-split"), map = $("map"), insp = $("inspector");
   if (!sp || !map) return;
-  const clamp = h => Math.round(Math.max(MAP_MIN, Math.min(insp.clientHeight - INSP_BODY_MIN - 40, h)));
+  const portrait = () => matchMedia("(max-width: 900px)").matches;
+  const clamp = h => Math.round(Math.max(MAP_MIN, Math.min(portrait() ? window.innerHeight - 40 : insp.clientHeight - INSP_BODY_MIN - 40, h)));
   const cur = () => map.getBoundingClientRect().height || MAP_DEFAULT;
   const apply = h => { h = clamp(h); insp.style.setProperty("--map-h", `${h}px`); sp.setAttribute("aria-valuenow", h); return h; };
   const save = h => { try { localStorage.setItem("acg-map-h", h); } catch (e) {} };
