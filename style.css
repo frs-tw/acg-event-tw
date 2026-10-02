@@ -354,3 +354,8 @@ body.resizing-v .map { pointer-events: none; }
   .tl-scroll { overflow: auto; }
   .tl-split { display: block; }
 }
+
+/* 直版：資訊收起時地圖滿版（扣掉地圖標題列的高度） */
+@media (max-width: 900px) {
+  .inspector.info-collapsed .map:not([hidden]) { flex: none; height: calc(100vh - 40px); height: calc(100dvh - 40px); }
+}

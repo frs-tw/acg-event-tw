@@ -378,6 +378,10 @@ function toggleInfo() {
   infoCollapsed = !infoCollapsed;
   try { localStorage.setItem("acg-info-collapsed", infoCollapsed ? "1" : "0"); } catch (e) {}
   applyInfoCollapsed();
+  // 直版收起資訊時，地圖變成滿版高度，順便捲到地圖
+  if (infoCollapsed && matchMedia("(max-width: 900px)").matches) {
+    setTimeout(() => $("map-head")?.scrollIntoView({ block: "start", behavior: "smooth" }), 50);
+  }
 }
 
 function renderInspector(e) {
