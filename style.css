@@ -46,10 +46,10 @@ h1 { font-weight: 900; font-size: clamp(28px, 5vw, 40px); line-height: 1.15; mar
 .meta b { color: var(--ink); font-size: 20px; }
 
 /* 篩選 */
-.filters { display: flex; flex-direction: column; gap: 10px; }
-.frow { display: flex; gap: 8px; align-items: center; min-width: 0; }
+.filters { display: flex; flex-direction: column; gap: 4px; }
+.frow { display: flex; gap: 6px; align-items: center; min-width: 0; }
 .flabel { font-size: 12px; color: var(--muted); letter-spacing: .1em; width: 3em; flex: none; }
-.chip { font-size: 13px; padding: 4px 12px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); cursor: pointer; display: inline-flex; align-items: center; gap: 6px; }
+.chip { font-size: 12px; line-height: 1.5; padding: 1px 10px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); cursor: pointer; display: inline-flex; align-items: center; gap: 6px; }
 .chip[aria-pressed="true"] { border-color: var(--ink); background: var(--ink); color: var(--bg); }
 .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--c); flex: none; }
 button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
@@ -289,7 +289,7 @@ body.resizing-v .map { pointer-events: none; }
 .t-covered span { position: absolute; top: 2px; left: 4px; font-family: var(--font-data); font-size: 11px; font-weight: 700; color: var(--muted); white-space: nowrap; background: var(--surface); padding-inline: 2px; }
 
 /* 類型／地點：固定一行，超出就橫向捲動（滾輪、拖曳），兩端漸層提示還有更多 */
-.fscroll { flex: 1; min-width: 0; display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; overscroll-behavior-x: contain; padding-block: 2px; }
+.fscroll { flex: 1; min-width: 0; display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; overscroll-behavior-x: contain; padding-block: 2px; }
 .fscroll::-webkit-scrollbar { display: none; }
 .fscroll .chip { flex: none; white-space: nowrap; }
 .fscroll.fade-r { mask-image: linear-gradient(to right, #000 calc(100% - 40px), transparent); }
@@ -338,3 +338,19 @@ body.resizing-v .map { pointer-events: none; }
 @media (pointer: coarse) and (max-width: 900px) { .workspace { grid-template-columns: minmax(0, 1fr); } }
 .drag-scrolling { cursor: grabbing; user-select: none; }
 @media (prefers-reduced-motion: reduce) { .splitter::after, .hsplit::after { transition: none; } }
+
+/* 資訊區可收合：收起時只留標題列，地圖往上長滿 */
+.map-head[aria-expanded="true"] .about-arrow { transform: rotate(90deg); }
+.inspector.info-collapsed .insp-body { flex: none; }
+.inspector.info-collapsed .insp-body > :not(#info-head) { display: none; }
+.inspector.info-collapsed .map-pane { flex: 1; display: flex; flex-direction: column; min-height: 0; }
+.inspector.info-collapsed .map-pane .hsplit { display: none; }
+.inspector.info-collapsed .map:not([hidden]) { flex: 1; height: auto; min-height: 120px; }
+
+/* 直版（900px 以下）：時間軸固定高度、內部捲動，下緣拖曳條可調整高度 */
+.tl-split { display: none; border-radius: 0 0 6px 6px; }
+@media (max-width: 900px) {
+  .tl-frame { flex: none; height: var(--tl-h, 60vh); }
+  .tl-scroll { overflow: auto; }
+  .tl-split { display: block; }
+}

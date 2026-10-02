@@ -52,6 +52,7 @@ Promise.all([getJSON("data/meta.json"), getJSON("data/places.json"), getJSON("da
     initMap();
     setupSplitter();
     setupMapSplit();
+    setupTlSplit();
     setupFilterScroll();
     setupPanelDrag();
     renderAbout();
@@ -60,7 +61,7 @@ Promise.all([getJSON("data/meta.json"), getJSON("data/places.json"), getJSON("da
     zoomToMonths(3, VIEW0);
   })
   .catch(() => {
-    $("insp-body").innerHTML = `<div class="i-empty">讀不到資料。直接雙擊開啟 index.html 會被瀏覽器擋下，請用本機伺服器開啟（見 README）。</div>`;
+    $("insp-body").innerHTML = `<div class="i-empty">讀不到資料。直接雙擊開啟 index.html 會被瀏覽器擋下，請在資料夾執行 python -m http.server 後用 localhost 開啟。</div>`;
   });
 
 /* ---------- 縣市分頁 ---------- */
@@ -363,9 +364,30 @@ function status(e) {
   return `<b>進行中</b> · ${left === 0 ? "今天最後一天" : `還剩 ${left + 1} 天`}`;
 }
 
+// 資訊區可收合（預設展開），狀態記在瀏覽器；收起時地圖往上長滿
+let infoCollapsed = false;
+try { infoCollapsed = localStorage.getItem("acg-info-collapsed") === "1"; } catch (e) {}
+
+function applyInfoCollapsed() {
+  $("inspector").classList.toggle("info-collapsed", infoCollapsed);
+  $("info-head")?.setAttribute("aria-expanded", !infoCollapsed);
+  if (MAP) setTimeout(() => MAP.invalidateSize(), 0);
+}
+
+function toggleInfo() {
+  infoCollapsed = !infoCollapsed;
+  try { localStorage.setItem("acg-info-collapsed", infoCollapsed ? "1" : "0"); } catch (e) {}
+  applyInfoCollapsed();
+}
+
 function renderInspector(e) {
   const box = $("insp-body");
-  if (!e) { box.innerHTML = `<div class="i-empty">沒有符合的活動。取消一些篩選條件試試。</div>`; return; }
+  if (!e) {
+    box.innerHTML = `<button type="button" class="i-tab map-head" id="info-head" aria-expanded="${!infoCollapsed}"><span>資訊</span><span class="about-arrow" aria-hidden="true">▸</span></button><div class="i-empty">沒有符合的活動。取消一些篩選條件試試。</div>`;
+    $("info-head").onclick = toggleInfo;
+    applyInfoCollapsed();
+    return;
+  }
   const s = d(e.start), en = d(e.end), days = Math.round((en - s) / DAY) + 1;
   const P = PLACES[e.place] || { label: e.place, mrt: "", addr: "" };
   const map = P.addr ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(P.addr)}` : "";
@@ -379,7 +401,7 @@ function renderInspector(e) {
   box.style.setProperty("--c", TYPE_COLOR[e.type]);
   // 密集版：不分區塊、不收合，一張屬性表從日期一路排到作品
   box.innerHTML = `
-    <div class="i-tab"><span>資訊</span></div>
+    <button type="button" class="i-tab map-head" id="info-head" aria-expanded="${!infoCollapsed}" aria-controls="i-scroll"><span>資訊</span><span class="about-arrow" aria-hidden="true">▸</span></button>
     <div class="i-head">
       <span class="i-type"><span class="dot"></span>${esc(META.types[e.type]?.label || e.type)}</span>
       <h2>${esc(e.title)}</h2>
@@ -397,6 +419,8 @@ function renderInspector(e) {
     </div>
   `;
   $("i-scroll").scrollTop = keepTop;
+  $("info-head").onclick = toggleInfo;
+  applyInfoCollapsed();
 }
 
 // 捷運站號依路線上色；「R10/O5」這種轉乘站拆成多個標籤。同一個代號在不同縣市是不同路線（台北 R 是淡水信義線、高雄 R 是紅線）
@@ -661,4 +685,42 @@ function setupPanelDrag() {
     window.addEventListener("pointerup", () => { active = false; host.classList.remove("drag-scrolling"); });
     host.addEventListener("click", ev => { if (moved) { ev.preventDefault(); ev.stopPropagation(); moved = false; } }, true);
   });
+}
+
+/* ---------- 直版時間軸高度（時間軸下緣的拖曳條，只在 900px 以下出現） ---------- */
+
+const TL_MIN = 160;
+
+function setupTlSplit() {
+  const sp = $("tl-split"), fr = $("tl-frame");
+  if (!sp || !fr) return;
+  const clamp = h => Math.round(Math.max(TL_MIN, Math.min(window.innerHeight * 0.9, h)));
+  const apply = h => { h = clamp(h); fr.style.setProperty("--tl-h", `${h}px`); sp.setAttribute("aria-valuenow", h); return h; };
+  const save = h => { try { localStorage.setItem("acg-tl-h", h); } catch (e) {} };
+  const cur = () => fr.getBoundingClientRect().height;
+  try { const v = +localStorage.getItem("acg-tl-h"); if (v) apply(v); } catch (e) {}
+
+  sp.addEventListener("pointerdown", ev => {
+    if (ev.button !== 0) return;
+    ev.preventDefault();
+    sp.setPointerCapture(ev.pointerId);
+    sp.classList.add("dragging"); document.body.classList.add("resizing-v");
+    const top = fr.getBoundingClientRect().top;
+    const move = e => apply(e.clientY - top);
+    const up = () => {
+      sp.removeEventListener("pointermove", move);
+      sp.classList.remove("dragging"); document.body.classList.remove("resizing-v");
+      save(cur());
+    };
+    sp.addEventListener("pointermove", move);
+    sp.addEventListener("pointerup", up, { once: true });
+    sp.addEventListener("pointercancel", up, { once: true });
+  });
+  sp.addEventListener("keydown", ev => {
+    if (ev.key !== "ArrowUp" && ev.key !== "ArrowDown") return;
+    ev.preventDefault();
+    save(apply(cur() + (ev.key === "ArrowDown" ? 20 : -20)));
+  });
+  // 雙擊恢復預設（畫面高度的 60%）
+  sp.addEventListener("dblclick", () => { fr.style.removeProperty("--tl-h"); try { localStorage.removeItem("acg-tl-h"); } catch (e) {} });
 }
