@@ -1,0 +1,1159 @@
+[
+  {
+    "title": "Ani-One 玩轉動漫遊",
+    "city": "kaohsiung",
+    "type": "popup",
+    "place": "dream",
+    "spot": "夢時代 8F 時代會館",
+    "start": "2026-08-29",
+    "end": "2026-10-19",
+    "startUnknown": false,
+    "works": [
+      "咒術迴戰",
+      "我的英雄學院",
+      "排球少年!!",
+      "怪獸8號",
+      "GACHIAKUTA",
+      "【我推的孩子】",
+      "不時輕聲地以俄語遮羞的鄰座艾莉同學",
+      "我獨自升級",
+      "NO GAME NO LIFE 遊戲人生",
+      "現在的是哪一個多聞！？",
+      "等 19 部以上（其餘作品官方未公布名稱）"
+    ],
+    "highlights": [
+      "咒術迴戰「純愛戒指」",
+      "NO GAME NO LIFE 泳裝限定系列"
+    ],
+    "url": "https://gnn.gamer.com.tw/detail.php?sn=310371"
+  },
+  {
+    "title": "孤獨搖滾！快閃店",
+    "city": "kaohsiung",
+    "type": "popup",
+    "place": "dream",
+    "spot": "夢時代 8F 顧客服務中心旁",
+    "start": "2026-09-17",
+    "end": "2026-10-26",
+    "startUnknown": false,
+    "works": [
+      "孤獨搖滾！"
+    ],
+    "highlights": [
+      "完熟芒果箱打卡點"
+    ],
+    "url": "https://www.walkerland.com.tw/subject/view/425081"
+  },
+  {
+    "title": "JOJO的奇妙冒險 星塵遠征軍 快閃店",
+    "city": "kaohsiung",
+    "type": "popup",
+    "place": "dream",
+    "spot": "統一時代百貨 1F",
+    "start": "2026-10-02",
+    "end": "2026-11-02",
+    "startUnknown": true,
+    "works": [
+      "JoJo的奇妙冒險"
+    ],
+    "highlights": [
+      "高雄限定 8 款新周邊！"
+    ],
+    "url": "https://www.walkerland.com.tw/subject/view/425081"
+  },
+  {
+    "title": "火影忍者 × MyAnime Cafe",
+    "city": "kaohsiung",
+    "type": "cafe",
+    "place": "dream",
+    "spot": "統一時代百貨 B1",
+    "start": "2026-10-02",
+    "end": "2026-10-22",
+    "startUnknown": true,
+    "works": [
+      "火影忍者"
+    ],
+    "highlights": [
+      "10/9–10/11 鳴人生日紀念卡"
+    ],
+    "url": "https://www.walkerland.com.tw/subject/view/425081"
+  },
+  {
+    "title": "真珠美人魚 主題咖啡廳",
+    "city": "kaohsiung",
+    "type": "cafe",
+    "place": "qianjin",
+    "spot": "FANFANS CAFÉ 高雄店",
+    "start": "2026-10-02",
+    "end": "2026-10-14",
+    "startUnknown": true,
+    "works": [
+      "真珠美人魚（等身立牌、隨餐贈品）"
+    ],
+    "highlights": [],
+    "url": "https://www.walkerland.com.tw/subject/view/425081"
+  },
+  {
+    "title": "高雄國際動漫節",
+    "city": "kaohsiung",
+    "type": "expo",
+    "place": "dome",
+    "spot": "高雄巨蛋",
+    "start": "2026-10-09",
+    "end": "2026-10-12",
+    "startUnknown": false,
+    "works": [
+      "與妳相戀到生命盡頭",
+      "葬送的芙莉蓮",
+      "咒術迴戰",
+      "我的英雄學院",
+      "排球少年!!",
+      "家庭教師HITMAN REBORN!"
+    ],
+    "highlights": [
+      "あおのなち 首次台灣簽名會（10/10）",
+      "知多娘。四天舞台演出"
+    ],
+    "url": "https://www.ccpa.org.tw/kica/"
+  },
+  {
+    "title": "KACG 高雄動漫城 10月紅葉場",
+    "city": "kaohsiung",
+    "type": "doujin",
+    "place": "station",
+    "spot": "高雄車站 B1／一番街 B2",
+    "start": "2026-10-17",
+    "end": "2026-10-18",
+    "startUnknown": false,
+    "works": [
+      "綜合同人活動（免費入場）"
+    ],
+    "highlights": [],
+    "url": "https://expo.acgncc.com/kacg"
+  },
+  {
+    "title": "萬聖惡作祭 vol.2 紅月之櫻",
+    "city": "kaohsiung",
+    "type": "expo",
+    "place": "zuoying",
+    "spot": "新光三越左營 10F 國際廳",
+    "start": "2026-10-25",
+    "end": "2026-10-25",
+    "startUnknown": false,
+    "works": [
+      "地下偶像、女僕咖啡",
+      "夜間 Cosplay Showcase"
+    ],
+    "highlights": [
+      "只有這一天！"
+    ],
+    "url": "https://expo.acgncc.com/dance_shadows2026"
+  },
+  {
+    "title": "KACG 高雄動漫城 11月萬聖場",
+    "city": "kaohsiung",
+    "type": "doujin",
+    "place": "station",
+    "spot": "高雄車站 B1／一番街 B2",
+    "start": "2026-10-31",
+    "end": "2026-11-01",
+    "startUnknown": false,
+    "works": [
+      "綜合同人活動（萬聖主題）"
+    ],
+    "highlights": [],
+    "url": "https://expo.acgncc.com/kacg"
+  },
+  {
+    "title": "高捷冬漫祭 11月場",
+    "city": "kaohsiung",
+    "type": "doujin",
+    "place": "fmsa",
+    "spot": "美麗島站",
+    "start": "2026-11-07",
+    "end": "2026-11-08",
+    "startUnknown": false,
+    "works": [
+      "綜合動漫市集"
+    ],
+    "highlights": [],
+    "url": "https://expo.acgncc.com/2026winter_manga"
+  },
+  {
+    "title": "高捷冬漫祭 音樂會與舞蹈大賽",
+    "city": "kaohsiung",
+    "type": "doujin",
+    "place": "fmsa",
+    "spot": "美麗島站",
+    "start": "2026-11-28",
+    "end": "2026-11-29",
+    "startUnknown": false,
+    "works": [
+      "動漫音樂會、舞蹈大賽"
+    ],
+    "highlights": [],
+    "url": "https://expo.acgncc.com/2026winter_manga"
+  },
+  {
+    "title": "駁二動漫祭 FFK19",
+    "city": "kaohsiung",
+    "type": "doujin",
+    "place": "pier2",
+    "spot": "駁二 P2、P3、B4、B9",
+    "start": "2026-12-05",
+    "end": "2026-12-06",
+    "startUnknown": false,
+    "works": [
+      "同人誌即售會、Cosplay"
+    ],
+    "highlights": [],
+    "url": "https://www.f-2.com.tw/"
+  },
+  {
+    "title": "高捷冬漫祭 美麗島桌遊節",
+    "city": "kaohsiung",
+    "type": "doujin",
+    "place": "fmsa",
+    "spot": "美麗島站",
+    "start": "2026-12-12",
+    "end": "2026-12-13",
+    "startUnknown": false,
+    "works": [
+      "動漫市集 × 桌遊節"
+    ],
+    "highlights": [],
+    "url": "https://expo.acgncc.com/2026winter_manga"
+  },
+  {
+    "title": "KACG 高雄動漫城 12月真冬場",
+    "city": "kaohsiung",
+    "type": "doujin",
+    "place": "station",
+    "spot": "高雄車站 B1／一番街 B2",
+    "start": "2026-12-19",
+    "end": "2026-12-20",
+    "startUnknown": false,
+    "works": [
+      "綜合同人活動"
+    ],
+    "highlights": [],
+    "url": "https://expo.acgncc.com/kacg"
+  },
+  {
+    "title": "寶可夢 MEZASTAR STATION 快閃店",
+    "city": "tainan",
+    "type": "popup",
+    "place": "tn-skm-zs",
+    "spot": "新光三越台南中山店 1F",
+    "start": "2026-09-26",
+    "end": "2026-10-06",
+    "startUnknown": false,
+    "works": [
+      "寶可夢（Pokémon MEZASTAR）"
+    ],
+    "highlights": [
+      "30週年限定「夢幻」卡匣，每日限量 400 張",
+      "APP 會員憑當日發票免費玩一次",
+      "每日 12:30–19:30"
+    ],
+    "url": "https://www.nownews.com/news/6878296"
+  },
+  {
+    "title": "寶可夢 MEZASTAR STATION 快閃店",
+    "city": "tainan",
+    "type": "popup",
+    "place": "tn-skm-xbm",
+    "spot": "新光三越台南小北門 4F",
+    "start": "2026-10-01",
+    "end": "2026-10-13",
+    "startUnknown": false,
+    "works": [
+      "寶可夢（Pokémon MEZASTAR）"
+    ],
+    "highlights": [
+      "30週年限定「夢幻」卡匣，每日限量 400 張",
+      "APP 會員憑當日發票免費玩一次",
+      "每日 12:30–19:30"
+    ],
+    "url": "https://www.nownews.com/news/6878296"
+  },
+  {
+    "title": "寶可夢30週年 巨型卡牌展",
+    "city": "tainan",
+    "type": "expo",
+    "place": "tn-skm-xbm",
+    "spot": "新光三越台南小北門（樓層未公布）",
+    "start": "2026-10-01",
+    "end": "2026-10-25",
+    "startUnknown": false,
+    "works": [
+      "寶可夢"
+    ],
+    "highlights": [
+      "12 張「30th CELEBRATION」皮卡丘巨型卡牌"
+    ],
+    "url": "https://www.nownews.com/news/6876421"
+  },
+  {
+    "title": "寶可夢30週年 10大寶可夢見面會",
+    "city": "tainan",
+    "type": "expo",
+    "place": "tn-skm-xbm",
+    "spot": "新光三越台南小北門",
+    "start": "2026-10-09",
+    "end": "2026-10-09",
+    "startUnknown": false,
+    "works": [
+      "寶可夢"
+    ],
+    "highlights": [
+      "只辦一天！南部唯一 10 大寶可夢見面會",
+      "憑不限金額發票兌換拍照資格"
+    ],
+    "url": "https://udn.com/news/story/7270/9770616"
+  },
+  {
+    "title": "2026十鼓魔法動漫祭 LPS-TNTDCC",
+    "city": "tainan",
+    "type": "doujin",
+    "place": "tn-tendrum",
+    "spot": "十鼓文創園區 5 大主題區",
+    "start": "2026-09-26",
+    "end": "2026-09-27",
+    "startUnknown": false,
+    "works": [
+      "綜合同人活動（Cosplay、同人誌與周邊市集、Vtuber、手作、模型）"
+    ],
+    "highlights": [
+      "Coser 席珍特別嘉賓",
+      "兩天 16 場舞台演出",
+      "百年糖廠奇幻外拍場景"
+    ],
+    "url": "https://www.cdns.com.tw/articles/1460298"
+  },
+  {
+    "title": "皮諾丘的夢之旅04 台南娃場",
+    "city": "tainan",
+    "type": "doujin",
+    "place": "tn-icc",
+    "spot": "大臺南會展中心 會議棟 1F 特展區",
+    "start": "2026-12-20",
+    "end": "2026-12-20",
+    "startUnknown": false,
+    "works": [
+      "綜合娃場（BJD、黏土人、OB11、棉花娃娃）"
+    ],
+    "highlights": [
+      "只辦一天！約 200 攤",
+      "入場 250 元（10:30–15:00）"
+    ],
+    "url": "https://www.doujin.com.tw/events/info/2531"
+  },
+  {
+    "title": "Phantasy Square 奇幻動漫祭 PS-TN 台南場試辦",
+    "city": "tainan",
+    "type": "doujin",
+    "place": "tn-tccp",
+    "spot": "臺南文化創意產業園區 1A 香蕉商場",
+    "start": "2027-03-06",
+    "end": "2027-03-06",
+    "startUnknown": false,
+    "works": [
+      "綜合同人活動（同人誌、Vtuber、Cosplay、二創）"
+    ],
+    "highlights": [
+      "只辦一天（10:15–16:00）",
+      "官方標示日期暫定",
+      "Cosplay 免費參加",
+      "全面禁止 AI 創作"
+    ],
+    "url": "https://phantasy-square.oen.tw/"
+  },
+  {
+    "title": "JOJO的奇妙冒險 星塵遠征軍 快閃店＆飆馬野郎 複製原畫展",
+    "city": "taichung",
+    "type": "popup",
+    "place": "tc-chungyo",
+    "spot": "中友百貨 C棟13樓",
+    "start": "2026-08-29",
+    "end": "2026-09-28",
+    "startUnknown": false,
+    "works": [
+      "JOJO的奇妙冒險 星塵遠征軍",
+      "飆馬野郎 JOJO的奇妙冒險（STEEL BALL RUN）"
+    ],
+    "highlights": [
+      "免費入場",
+      "60 幅以上複製原畫",
+      "荒木飛呂彥動畫化紀念插畫展示",
+      "近 30 款全新周邊＋日本進口商品"
+    ],
+    "url": "https://www.techbang.com/posts/132516-jojo-stardust-crusaders-pop-up-store-taichung"
+  },
+  {
+    "title": "庫洛魔法使 快閃特展",
+    "city": "taichung",
+    "type": "expo",
+    "place": "tc-chungyo",
+    "spot": "中友百貨 C棟13樓國際大廳",
+    "start": "2026-08-22",
+    "end": "2026-09-18",
+    "startUnknown": false,
+    "works": [
+      "庫洛魔法使"
+    ],
+    "highlights": [
+      "免費入場",
+      "台灣場限定章魚燒＋珍奶場景",
+      "庫洛牌／小櫻牌／透明牌展示與 CLAMP 原畫",
+      "台灣限定下午茶杯組（僅展期販售）"
+    ],
+    "url": "https://www.mrmantter.com/post/taichung-cardcaptor-sakura-popup-chungyo-station-hotel"
+  },
+  {
+    "title": "吉伊卡哇 POP UP STORE",
+    "city": "taichung",
+    "type": "popup",
+    "place": "tc-skm",
+    "spot": "新光三越台中中港店 10樓天空劇場",
+    "start": "2026-08-22",
+    "end": "2026-09-20",
+    "startUnknown": false,
+    "works": [
+      "吉伊卡哇"
+    ],
+    "highlights": [
+      "「獨角仙」主題新品（玩偶、毛巾、餐具、杯墊、雷射貼紙）",
+      "單筆滿 800 元送限定星空購物袋",
+      "商品限購，可能發號碼牌"
+    ],
+    "url": "https://www.nownews.com/news/6864333"
+  },
+  {
+    "title": "寶可夢 MEZASTAR STATION 快閃店",
+    "city": "taichung",
+    "type": "popup",
+    "place": "tc-skm",
+    "spot": "新光三越台中中港店 9樓",
+    "start": "2026-10-01",
+    "end": "2026-10-12",
+    "startUnknown": false,
+    "works": [
+      "寶可夢（Pokémon MEZASTAR）"
+    ],
+    "highlights": [
+      "30週年限定「夢幻」卡匣，每日限量 450 張",
+      "APP 會員憑當日消費憑證免費玩一次",
+      "每日 12:30–19:30"
+    ],
+    "url": "https://www.nownews.com/news/6878296"
+  },
+  {
+    "title": "木棉花「超動漫研究社」快閃店",
+    "city": "taichung",
+    "type": "popup",
+    "place": "tc-lalaport",
+    "spot": "LaLaport台中 北館1F舞台區",
+    "start": "2026-09-17",
+    "end": "2026-10-20",
+    "startUnknown": false,
+    "works": [
+      "黃泉使者",
+      "獵人 HUNTER×HUNTER",
+      "鬼滅之刃",
+      "葬送的芙莉蓮",
+      "關於我轉生變成史萊姆這檔事",
+      "家庭教師HITMAN REBORN!",
+      "Lycoris Recoil 莉可麗絲",
+      "膽大黨",
+      "進擊的巨人",
+      "暗殺教室",
+      "魔法少女小圓"
+    ],
+    "highlights": [
+      "免費入場",
+      "《黃泉使者》日式門樓拱門首度亮相",
+      "芙莉蓮大型氣偶＋星空牆",
+      "5 款作品福袋 777 元",
+      "滿 999 送小圓光柵卡、滿 1499 送莉可麗絲黃金胸章"
+    ],
+    "url": "https://gnn.gamer.com.tw/detail.php?sn=311635"
+  },
+  {
+    "title": "火影忍者 × MyAnime Cafe（Café stand）",
+    "city": "taichung",
+    "type": "cafe",
+    "place": "tc-lalaport",
+    "spot": "LaLaport台中 3F Café stand（僅飲品外帶）",
+    "start": "2026-09-11",
+    "end": "2026-10-22",
+    "startUnknown": false,
+    "works": [
+      "火影忍者 -72系列-"
+    ],
+    "highlights": [
+      "台中僅提供飲品外帶",
+      "飲品附隨機杯墊",
+      "10/9–10/11 鳴人生日紀念卡（台中是否適用未明）"
+    ],
+    "url": "https://www.nownews.com/news/6872655"
+  },
+  {
+    "title": "家庭教師HITMAN REBORN! 20週年 × MyAnime Café stand",
+    "city": "taichung",
+    "type": "cafe",
+    "place": "tc-lalaport",
+    "spot": "LaLaport台中 3F Café stand（僅飲品外帶）",
+    "start": "2026-07-24",
+    "end": "2026-09-10",
+    "startUnknown": false,
+    "works": [
+      "家庭教師HITMAN REBORN!"
+    ],
+    "highlights": [
+      "動畫 20 週年",
+      "彭哥列家族／瓦利亞主題飲品",
+      "台中僅外帶、不適用滿額禮"
+    ],
+    "url": "https://www.4gamers.com.tw/news/detail/80714/katekyo-hitman-reborn-my-anime-cafe"
+  },
+  {
+    "title": "排球少年!! 臺灣遠征 快閃店",
+    "city": "taichung",
+    "type": "popup",
+    "place": "tc-tcrp",
+    "spot": "臺中驛 H09 入口藝廊（另有來源稱鐵鹿大街 A2）",
+    "start": "2026-07-26",
+    "end": "2026-10-11",
+    "startUnknown": false,
+    "works": [
+      "排球少年!!"
+    ],
+    "highlights": [
+      "日本 47 都道府縣巡迴後首站海外場",
+      "東寶官方周邊",
+      "等身角色立牌、經典場景重現"
+    ],
+    "url": "https://www.mrmantter.com/post/taichung-haikyu-popup-store-hours-budget-hotel"
+  },
+  {
+    "title": "萌魂動漫祭",
+    "city": "taichung",
+    "type": "popup",
+    "place": "tc-tcrp",
+    "spot": "臺中驛 鐵鹿大街 A2",
+    "start": "2026-08-27",
+    "end": "2026-09-20",
+    "startUnknown": false,
+    "works": [
+      "光逝去的夏天",
+      "孤獨搖滾！",
+      "幻獸帕魯",
+      "藥師少女的獨語",
+      "初音未來",
+      "等 20 部以上（其餘作品官方未公布名稱）"
+    ],
+    "highlights": [
+      "以《光逝去的夏天》為主視覺",
+      "滿 500 送限定雷射票卡",
+      "社群打卡送限定扇子"
+    ],
+    "url": "https://travel.yam.com/post/2181"
+  },
+  {
+    "title": "2026台中國際動漫博覽會「漫味食光」",
+    "city": "taichung",
+    "type": "expo",
+    "place": "tc-cityhall",
+    "spot": "台灣大道市政大樓 中央川堂＋國家漫畫博物館聯動",
+    "start": "2026-09-17",
+    "end": "2026-09-23",
+    "startUnknown": false,
+    "works": [
+      "中華一番！",
+      "其餘作品官方未公布名稱"
+    ],
+    "highlights": [
+      "免費入場",
+      "9/19 動漫音樂會：谷本貴義獻唱《中華一番！》主題曲",
+      "週末同人創作市集、漫畫講座"
+    ],
+    "url": "https://gnn.gamer.com.tw/detail.php?sn=311513"
+  },
+  {
+    "title": "PS-TC 奇幻動漫祭 台中場",
+    "city": "taichung",
+    "type": "doujin",
+    "place": "tc-wordslive",
+    "spot": "Words Live 站前館 多功能二館",
+    "start": "2026-11-21",
+    "end": "2026-11-21",
+    "startUnknown": false,
+    "works": [
+      "綜合同人活動"
+    ],
+    "highlights": [
+      "只辦一天（11:15–17:00）",
+      "VTuber 線下見面會",
+      "Cosplay 免費參加",
+      "入場 200 元"
+    ],
+    "url": "https://www.doujin.com.tw/events/info/2452"
+  },
+  {
+    "title": "FT04 奇幻時光 女性向同人創作交流展",
+    "city": "taichung",
+    "type": "doujin",
+    "place": "tc-cip",
+    "spot": "台中文創園區 雅堂館",
+    "start": "2026-12-19",
+    "end": "2026-12-19",
+    "startUnknown": false,
+    "works": [
+      "綜合女性向同人活動"
+    ],
+    "highlights": [
+      "只辦一天",
+      "150 攤",
+      "提供 Cosplay 更衣室"
+    ],
+    "url": "https://www.doujin.com.tw/events/info/2495"
+  },
+  {
+    "title": "GJ36 動漫創作展",
+    "city": "taichung",
+    "type": "doujin",
+    "place": "tc-ntus",
+    "spot": "臺體大體育館",
+    "start": "2026-12-26",
+    "end": "2026-12-27",
+    "startUnknown": false,
+    "works": [
+      "綜合同人活動"
+    ],
+    "highlights": [
+      "雙日共 600 攤",
+      "提供 Cosplay 更衣室",
+      "入場 10:30–16:00"
+    ],
+    "url": "https://www.doujin.com.tw/events/info/2513"
+  },
+  {
+    "title": "新世紀福音戰士展：線（Lines of EVANGELION）台北站",
+    "city": "taipei",
+    "type": "expo",
+    "place": "tp-skm-a9",
+    "spot": "新光三越信義新天地 A9 9F 宴會展演館",
+    "start": "2026-08-14",
+    "end": "2026-10-04",
+    "startUnknown": false,
+    "works": [
+      "新世紀福音戰士",
+      "福音戰士新劇場版"
+    ],
+    "highlights": [
+      "Studio khara 提供逾 500 件原畫、設定與分鏡",
+      "全新初號機 3D 建模裝置",
+      "台灣限定「阿嬤家」主視覺與限定周邊",
+      "入場贈限定著色單＋隨機 EVA 色鉛筆"
+    ],
+    "url": "https://n.yam.com/Article/20260710947136"
+  },
+  {
+    "title": "家庭教師HITMAN REBORN! 動畫20週年快閃店 台北站",
+    "city": "taipei",
+    "type": "popup",
+    "place": "tp-syntrend",
+    "spot": "三創生活園區 1F 十二立方",
+    "start": "2026-09-12",
+    "end": "2026-10-12",
+    "startUnknown": false,
+    "works": [
+      "家庭教師HITMAN REBORN!"
+    ],
+    "highlights": [
+      "免費入場",
+      "滿 1,299 贈盲抽磁鐵（9/12–9/30）或 ID 小卡（10/1–10/12）",
+      "兩波 699 元禮包各限量 200 組",
+      "武器造型鑰匙圈、雷射卡盲抽"
+    ],
+    "url": "https://gnn.gamer.com.tw/detail.php?sn=311507"
+  },
+  {
+    "title": "家庭教師HITMAN REBORN! 20週年 × MyAnime Café",
+    "city": "taipei",
+    "type": "cafe",
+    "place": "tp-syntrend",
+    "spot": "三創生活園區 7F MyAnime Café",
+    "start": "2026-07-24",
+    "end": "2026-09-10",
+    "startUnknown": false,
+    "works": [
+      "家庭教師HITMAN REBORN!"
+    ],
+    "highlights": [
+      "角色主題餐點",
+      "滿 800 贈紀念照片卡或角色徽章",
+      "需線上預約"
+    ],
+    "url": "https://www.nownews.com/news/6857295"
+  },
+  {
+    "title": "火影忍者 -72系列- × MyAnime Café",
+    "city": "taipei",
+    "type": "cafe",
+    "place": "tp-syntrend",
+    "spot": "三創生活園區 7F MyAnime Café",
+    "start": "2026-09-11",
+    "end": "2026-10-22",
+    "startUnknown": false,
+    "works": [
+      "火影忍者"
+    ],
+    "highlights": [
+      "10/9–10/11 點鳴人主餐贈生日紀念卡",
+      "滿 800 贈期間限定海報",
+      "需事先線上訂位"
+    ],
+    "url": "https://gnn.gamer.com.tw/detail.php?sn=311522"
+  },
+  {
+    "title": "CHIIKAWA DAYS 台北特展",
+    "city": "taipei",
+    "type": "expo",
+    "place": "tp-huashan",
+    "spot": "華山1914 東2館",
+    "start": "2026-07-04",
+    "end": "2026-09-27",
+    "startUnknown": false,
+    "works": [
+      "吉伊卡哇（ちいかわ）"
+    ],
+    "highlights": [
+      "逾 100 座立體公仔與巨型充氣裝置",
+      "「討伐棒」互動特效",
+      "長野老師手繪台灣限定「台灣夜市」系列"
+    ],
+    "url": "https://supertaste.tvbs.com.tw/hot/359723"
+  },
+  {
+    "title": "動漫最高祭 ANIME MAX FESTIVAL",
+    "city": "taipei",
+    "type": "expo",
+    "place": "tp-huashan",
+    "spot": "華山1914 中7B館",
+    "start": "2026-06-18",
+    "end": "2026-09-13",
+    "startUnknown": false,
+    "works": [
+      "一拳超人",
+      "進擊的巨人",
+      "鬼滅之刃",
+      "葬送的芙莉蓮",
+      "JOJO的奇妙冒險",
+      "櫻蘭高校男公關部",
+      "暗殺教室",
+      "Lycoris Recoil 莉可麗絲",
+      "關於我轉生變成史萊姆這檔事",
+      "SPY×FAMILY 間諜家家酒",
+      "等 10 部以上（其餘作品官方未公布名稱）"
+    ],
+    "highlights": [
+      "免費入場",
+      "四大主題打卡場景",
+      "多 IP 閃卡機、卡片機市集"
+    ],
+    "url": "https://travel.yam.com/article/140102"
+  },
+  {
+    "title": "櫻桃小丸子 原作40週年特展",
+    "city": "taipei",
+    "type": "expo",
+    "place": "tp-songshan",
+    "spot": "松山文創園區 5號倉庫",
+    "start": "2026-06-18",
+    "end": "2026-09-28",
+    "startUnknown": false,
+    "works": [
+      "櫻桃小丸子"
+    ],
+    "highlights": [
+      "漫畫原稿展示",
+      "首度公開新角色設計",
+      "40 週年限定周邊"
+    ],
+    "url": "https://www.tatlerasia.com/lifestyle/entertainment/kudo-shizuka-chibi-maruko-chan-40th-anniversary-event-zh-hant"
+  },
+  {
+    "title": "伊藤潤二展 誘惑",
+    "city": "taipei",
+    "type": "expo",
+    "place": "tp-songshan",
+    "spot": "松山文創園區 4號倉庫",
+    "start": "2026-06-19",
+    "end": "2026-09-28",
+    "startUnknown": false,
+    "works": [
+      "富江",
+      "漩渦",
+      "十字路口的美少年",
+      "阿彌殼斷層之謎",
+      "上吊氣球",
+      "等 6 部以上（其餘作品官方未公布名稱）"
+    ],
+    "highlights": [
+      "海外首展，逾 300 件展品",
+      "漩渦臉部辨識互動",
+      "台灣限定富江周邊"
+    ],
+    "url": "https://www.nownews.com/news/6848017"
+  },
+  {
+    "title": "100%哆啦A夢櫻花節 in 台北",
+    "city": "taipei",
+    "type": "popup",
+    "place": "tp-songshan",
+    "spot": "松山文創園區 北向製菸工廠 1F 東側",
+    "start": "2026-07-10",
+    "end": "2026-10-11",
+    "startUnknown": false,
+    "works": [
+      "哆啦A夢"
+    ],
+    "highlights": [
+      "免費入場",
+      "全台唯一一站",
+      "28 款櫻花節限定新品"
+    ],
+    "url": "https://www.songshanculturalpark.org/exhibition/activity/8e248f11-734d-4987-bbbe-7bfceab13e3e"
+  },
+  {
+    "title": "劇場版 鏈鋸人 蕾潔篇 快閃店",
+    "city": "taipei",
+    "type": "popup",
+    "place": "tp-skm-nanxi",
+    "spot": "新光三越南西一館 9F 玻璃屋",
+    "start": "2026-08-06",
+    "end": "2026-09-13",
+    "startUnknown": false,
+    "works": [
+      "鏈鋸人"
+    ],
+    "highlights": [
+      "免費入場",
+      "全台首場",
+      "蕾潔限定周邊、光柵卡抽卡機"
+    ],
+    "url": "https://www.4gamers.com.tw/news/detail/81145/chainsaw-man-the-movie-reze-arc-pop-up-store-in-taipei-skm-2026"
+  },
+  {
+    "title": "劇場版 魔法少女小圓〈瓦爾普吉斯的迴天〉快閃店",
+    "city": "taipei",
+    "type": "popup",
+    "place": "tp-qsquare-vieshow",
+    "spot": "京站威秀影城 5F",
+    "start": "2026-09-04",
+    "end": "2026-09-30",
+    "startUnknown": false,
+    "works": [
+      "魔法少女小圓"
+    ],
+    "highlights": [
+      "逾 60 款限定周邊",
+      "三大打卡點",
+      "每人每款限購"
+    ],
+    "url": "https://www.nownews.com/news/6872178"
+  },
+  {
+    "title": "鋼之鍊金術師 BROTHERHOOD 期間限定商售區",
+    "city": "taipei",
+    "type": "popup",
+    "place": "tp-qsquare-vieshow",
+    "spot": "京站威秀影城 5F",
+    "start": "2026-10-02",
+    "end": "2026-11-01",
+    "startUnknown": false,
+    "works": [
+      "鋼之鍊金術師 BROTHERHOOD"
+    ],
+    "highlights": [
+      "巨幅鍊成陣背景牆",
+      "近 50 款全新周邊",
+      "滿額贈限定角色書籤",
+      "配合兩部劇場版 4K 重映"
+    ],
+    "url": "https://www.nownews.com/news/6877427"
+  },
+  {
+    "title": "神劍闖江湖展 30th Anniversary 志志雄真實篇",
+    "city": "taipei",
+    "type": "expo",
+    "place": "tp-breeze",
+    "spot": "微風廣場 8F C廳",
+    "start": "2026-09-11",
+    "end": "2026-10-11",
+    "startUnknown": false,
+    "works": [
+      "神劍闖江湖"
+    ],
+    "highlights": [
+      "近 300 幅複製原畫",
+      "11 大展區重現京都篇",
+      "入場隨機贈台灣限定書籤",
+      "Klook 獨家售票"
+    ],
+    "url": "https://news.qoo-app.com/post/442639/rurouken-30th-anniversary-exhibition"
+  },
+  {
+    "title": "Re:從零開始的異世界生活 CAFÉ（動畫10週年）",
+    "city": "taipei",
+    "type": "cafe",
+    "place": "tp-eslite-r79",
+    "spot": "誠品R79 中山地下書街",
+    "start": "2026-08-28",
+    "end": "2026-10-31",
+    "startUnknown": false,
+    "works": [
+      "Re:從零開始的異世界生活"
+    ],
+    "highlights": [
+      "七大打卡點",
+      "六大限定餐點，飲品附隨機杯墊",
+      "破百款全新周邊",
+      "滿 999 贈 Q 版角色飯匙"
+    ],
+    "url": "https://travel.yam.com/article/140836"
+  },
+  {
+    "title": "真珠美人魚 期間限定主題咖啡廳",
+    "city": "taipei",
+    "type": "cafe",
+    "place": "tp-fanfans-ximen",
+    "spot": "FANFANS CAFÉ 西門店 5F",
+    "start": "2026-08-27",
+    "end": "2026-10-31",
+    "startUnknown": false,
+    "works": [
+      "真珠美人魚"
+    ],
+    "highlights": [
+      "露西亞、波音、璃娜 1:1 立牌",
+      "主餐附角色卡、飲品附隨機杯墊",
+      "滿 1,299 贈麥克風造型壓克力牌"
+    ],
+    "url": "https://supertaste.tvbs.com.tw/food/361202"
+  },
+  {
+    "title": "守護甜心！ 主題餐飲「仲夏茶會」",
+    "city": "taipei",
+    "type": "cafe",
+    "place": "tp-cayenne-zhongxiao",
+    "spot": "凱岩咖啡 忠孝店 1F",
+    "start": "2026-10-07",
+    "end": "2026-11-29",
+    "startUnknown": false,
+    "works": [
+      "守護甜心！"
+    ],
+    "highlights": [
+      "15 款主題餐飲",
+      "滿 500 贈明信片、滿 1,000 贈壓克力吊飾",
+      "開放線上訂位"
+    ],
+    "url": "https://gnn.gamer.com.tw/detail.php?sn=312601"
+  },
+  {
+    "title": "吉伊卡哇 POP UP STORE（萬聖節）",
+    "city": "taipei",
+    "type": "popup",
+    "place": "tp-skm-a9",
+    "spot": "新光三越信義新天地 A9 9F 宴會展演館",
+    "start": "2026-10-07",
+    "end": "2026-11-15",
+    "startUnknown": false,
+    "works": [
+      "吉伊卡哇（ちいかわ）"
+    ],
+    "highlights": [
+      "萬聖節限定變裝娃娃吊飾",
+      "僅單一來源，場地資訊待確認"
+    ],
+    "url": "https://universe.oneone.com.tw/posts/6969"
+  },
+  {
+    "title": "高田明美 2026 世界名作展 台北站",
+    "city": "taipei",
+    "type": "expo",
+    "place": "tp-loushi",
+    "spot": "陋室五月小風景（週一、週二休）",
+    "start": "2026-10-03",
+    "end": "2026-11-01",
+    "startUnknown": false,
+    "works": [
+      "魔法小天使（我係小忌廉）",
+      "機動警察",
+      "世界樹 B-CLUB画集"
+    ],
+    "highlights": [
+      "免費參觀",
+      "兩階段輪替展出（10/3–10/18、10/21–11/1）",
+      "原畫、版畫可現場購藏"
+    ],
+    "url": "https://gnn.gamer.com.tw/detail.php?sn=312561"
+  },
+  {
+    "title": "stella｜黑星紅白 台灣初個展",
+    "city": "taipei",
+    "type": "expo",
+    "place": "tp-dart",
+    "spot": "d/art 3F（週一、週二休）",
+    "start": "2026-10-24",
+    "end": "2026-11-22",
+    "startUnknown": false,
+    "works": [
+      "奇諾之旅",
+      "刀劍神域外傳 Gun Gale Online",
+      "Blade Princess",
+      "初音未來",
+      "ロロ星（原創）"
+    ],
+    "highlights": [
+      "台灣首次個展，約 80 件作品",
+      "簽名會 10/31、11/1（每日 150 名）",
+      "門票 100 元附紀念明信片"
+    ],
+    "url": "https://gnn.gamer.com.tw/detail.php?sn=312636"
+  },
+  {
+    "title": "ART of MIKU 台北展（第二期）",
+    "city": "taipei",
+    "type": "expo",
+    "place": "tp-hakuishi",
+    "spot": "白石畫廊 展覽空間I（週一休）",
+    "start": "2026-08-29",
+    "end": "2026-09-20",
+    "startUnknown": false,
+    "works": [
+      "初音未來",
+      "Piapro Characters"
+    ],
+    "highlights": [
+      "23 位藝術家重新詮釋",
+      "入場贈限定隨機徽章"
+    ],
+    "url": "https://woman.udn.com/woman/story/123162/9742443"
+  },
+  {
+    "title": "TOHO Special POP-UP STORE",
+    "city": "taipei",
+    "type": "popup",
+    "place": "tp-lalaport-nangang",
+    "spot": "LaLaport 南港 B1F 迷你廣場",
+    "start": "2026-09-24",
+    "end": "2027-01-04",
+    "startUnknown": false,
+    "works": [
+      "GODZILLA 哥吉拉",
+      "哥吉拉-0.0",
+      "葬送的芙莉蓮",
+      "藥師少女的獨語",
+      "我是不才惡女",
+      "凍結地球",
+      "咒術迴戰",
+      "排球少年!!",
+      "怪獸8號",
+      "SPY×FAMILY 間諜家家酒",
+      "等 10 部以上（其餘作品官方未公布名稱）"
+    ],
+    "highlights": [
+      "巨型哥吉拉雕像拍照區",
+      "10 月起每月更新 IP 與商品"
+    ],
+    "url": "https://news.gamebase.com.tw/news/detail/99441478"
+  },
+  {
+    "title": "曼迪動漫派對 新北裕隆城站",
+    "city": "taipei",
+    "type": "popup",
+    "place": "tp-yulon",
+    "spot": "新北 新店裕隆城 5F 機械大廳",
+    "start": "2026-09-23",
+    "end": "2026-10-28",
+    "startUnknown": false,
+    "works": [
+      "名偵探柯南",
+      "Fate/strange Fake",
+      "Silent Witch 沉默魔女的祕密",
+      "孤獨搖滾！",
+      "等 4 部以上（其餘作品官方未公布名稱）"
+    ],
+    "highlights": [
+      "名偵探柯南日版周邊",
+      "現場限定周邊"
+    ],
+    "url": "https://news.gamebase.com.tw/news/detail/99441512"
+  },
+  {
+    "title": "Petit Fancy 45 × Reality Fantasy 14",
+    "city": "taipei",
+    "type": "doujin",
+    "place": "tp-expo-zhengyan",
+    "spot": "花博公園爭艷館",
+    "start": "2026-11-07",
+    "end": "2026-11-08",
+    "startUnknown": false,
+    "works": [
+      "綜合同人活動（同人誌、Cosplay、模型）"
+    ],
+    "highlights": [
+      "兩日共約 1,100 攤"
+    ],
+    "url": "https://www.f-2.com.tw/"
+  },
+  {
+    "title": "CWT-74 台北場",
+    "city": "taipei",
+    "type": "doujin",
+    "place": "tp-ntu-gym",
+    "spot": "台大綜合體育館 1F／3F／4F",
+    "start": "2026-12-12",
+    "end": "2026-12-13",
+    "startUnknown": false,
+    "works": [
+      "綜合同人活動"
+    ],
+    "highlights": [],
+    "url": "https://www.comicworld.com.tw/"
+  },
+  {
+    "title": "CWT-75 台北場",
+    "city": "taipei",
+    "type": "doujin",
+    "place": "tp-ntu-gym",
+    "spot": "台大綜合體育館 1F／3F／4F",
+    "start": "2027-02-13",
+    "end": "2027-02-14",
+    "startUnknown": false,
+    "works": [
+      "綜合同人活動"
+    ],
+    "highlights": [],
+    "url": "https://www.comicworld.com.tw/"
+  },
+  {
+    "title": "CWT-76 台北場",
+    "city": "taipei",
+    "type": "doujin",
+    "place": "tp-ntu-gym",
+    "spot": "台大綜合體育館 1F／3F／4F",
+    "start": "2027-08-14",
+    "end": "2027-08-15",
+    "startUnknown": false,
+    "works": [
+      "綜合同人活動"
+    ],
+    "highlights": [],
+    "url": "https://www.comicworld.com.tw/"
+  }
+]

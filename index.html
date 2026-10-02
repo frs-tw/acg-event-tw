@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ACG 檔期表</title>
+<meta name="description" content="動漫展、快閃店、同人活動與主題餐廳的檔期時間軸，可依縣市、類型與地點篩選。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;700&family=Noto+Sans+TC:wght@400;500;700;900&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <div class="kicker">ACG Calendar</div>
+    </div>
+  </header>
+
+  <div class="workspace">
+  <div class="main-col">
+  <div class="tabs-bar">
+    <nav class="city-tabs" id="city-tabs" role="tablist" aria-label="縣市"></nav>
+    <div class="city-meta" id="city-meta"></div>
+  </div>
+
+  <section class="filters" aria-label="篩選">
+    <div class="frow"><span class="flabel">類型</span><div class="fscroll" id="f-type"></div></div>
+    <div class="frow"><span class="flabel">地點</span><div class="fscroll" id="f-place"></div></div>
+  </section>
+
+  <section class="tl" aria-label="檔期時間軸">
+    <div class="tl-bar">
+      <div class="zoom" role="group" aria-label="縮放">
+        <button type="button" class="zbtn" id="z-out" aria-label="縮小">−</button>
+        <button type="button" class="zbtn" id="z-in" aria-label="放大">＋</button>
+        <span class="zsep"></span>
+        <button type="button" class="zbtn zpreset" data-months="1">1 個月</button>
+        <button type="button" class="zbtn zpreset" data-months="3">3 個月</button>
+        <button type="button" class="zbtn zpreset" data-months="6">6 個月</button>
+        <button type="button" class="zbtn zpreset" data-months="12">12 個月</button>
+      </div>
+      <div class="zoom">
+        <button type="button" class="zbtn" id="hide-ended" aria-pressed="false">隱藏已結束</button>
+        <button type="button" class="zbtn" id="z-today">回到本月</button>
+      </div>
+    </div>
+    <div class="frame tl-frame"><div class="tl-scroll" id="tl-scroll"><div class="tl-inner" id="tl-inner"></div></div></div>
+  </section>
+  </div>
+
+  <div class="splitter" id="splitter" role="separator" aria-orientation="vertical" aria-label="調整右側面板寬度" tabindex="0"></div>
+
+  <aside class="inspector frame" id="inspector" aria-label="活動詳細資料">
+    <div class="insp-body" id="insp-body" aria-live="polite"><div class="i-empty">載入活動資料中…</div></div>
+    <section class="map-pane" aria-label="地點地圖">
+      <div class="hsplit" id="map-split" role="separator" aria-orientation="horizontal" aria-label="調整地圖高度" tabindex="0"></div>
+      <button type="button" class="i-tab map-head" id="map-head" aria-expanded="true" aria-controls="map"><span>地圖</span><span class="about-arrow" aria-hidden="true">▸</span></button>
+      <div class="map" id="map"></div>
+    </section>
+    <details class="about" id="about">
+      <summary class="i-tab"><span>關於網站</span><span class="about-arrow" aria-hidden="true">▸</span></summary>
+      <div class="about-body" id="about-body"></div>
+    </details>
+  </aside>
+  </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

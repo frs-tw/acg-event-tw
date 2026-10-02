@@ -1,0 +1,340 @@
+/* Layout: 篩選在上；下方工作區左邊是可縮放的時間軸（季度色帶 + 月份刻度，名稱欄固定），右邊是 Inspector 顯示選取的活動 */
+:root {
+  --bg: #F2F4F8;
+  --surface: #FFFFFF;
+  --ink: #1A2038;
+  --muted: #5B6380;
+  --line: #DCE0EA;
+  --band: #E8EBF3;
+  --band-alt: #F6F7FB;
+  --accent: #D6336C;
+  --on-bar: #FFFFFF;
+  --t-popup: #D6336C;
+  --t-expo: #3B5BDB;
+  --t-doujin: #0C8599;
+  --t-cafe: #E8590C;
+  --sel: #EEF1FF;
+  --inner-shadow: inset 0 1px 6px rgba(0, 0, 0, .10), inset 0 0 0 1px rgba(0, 0, 0, .02);
+  --font-body: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
+  --font-data: "Chakra Petch", ui-monospace, "Consolas", monospace;
+  --name-w: 260px;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #11141F; --surface: #1A1F2E; --ink: #E7EAF3; --muted: #9AA2BD; --line: #2C3347;
+    --band: #252B3D; --band-alt: #1E2334;
+    --on-bar: #11141F; --accent: #F06595; --t-popup: #F06595; --t-expo: #748FFC; --t-doujin: #3BC9DB; --t-cafe: #FF922B;
+    --sel: #262D48;
+    --inner-shadow: inset 0 1px 8px rgba(0, 0, 0, .45), inset 0 0 0 1px rgba(0, 0, 0, .15);
+    color-scheme: dark;
+  }
+}
+@media (max-width: 560px) { :root { --name-w: 150px; } }
+
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { overflow-x: clip; background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 15px; line-height: 1.6; }
+.wrap { min-width: 0; margin: 0; padding-inline: 20px; padding-block: 32px 64px; display: flex; flex-direction: column; gap: 24px; }
+.muted { color: var(--muted); }
+button { font: inherit; }
+
+header { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px; }
+.kicker { font-family: var(--font-data); font-weight: 700; letter-spacing: .14em; font-size: 12px; color: var(--accent); text-transform: uppercase; }
+h1 { font-weight: 900; font-size: clamp(28px, 5vw, 40px); line-height: 1.15; margin: 4px 0 0; }
+.meta { color: var(--muted); font-size: 13px; font-family: var(--font-data); }
+.meta b { color: var(--ink); font-size: 20px; }
+
+/* 篩選 */
+.filters { display: flex; flex-direction: column; gap: 10px; }
+.frow { display: flex; gap: 8px; align-items: center; min-width: 0; }
+.flabel { font-size: 12px; color: var(--muted); letter-spacing: .1em; width: 3em; flex: none; }
+.chip { font-size: 13px; padding: 4px 12px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); cursor: pointer; display: inline-flex; align-items: center; gap: 6px; }
+.chip[aria-pressed="true"] { border-color: var(--ink); background: var(--ink); color: var(--bg); }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--c); flex: none; }
+button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* 時間軸工具列 */
+.tl { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.tl-bar { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; }
+.zoom { display: flex; flex-wrap: wrap; gap: 4px; align-items: center; }
+.zbtn { font-size: 13px; min-width: 32px; padding: 3px 10px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 6px; cursor: pointer; }
+.zbtn:hover { border-color: var(--muted); }
+.zbtn[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.zsep { width: 8px; }
+.tl-hint { margin: 0; font-size: 12px; color: var(--muted); }
+
+/* 時間軸本體 */
+.tl-scroll { min-width: 0; max-width: 100%; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; overflow-x: auto; overscroll-behavior-x: contain; }
+.tl-scroll { scrollbar-width: none; cursor: grab; }
+.tl-scroll::-webkit-scrollbar { display: none; }
+.tl-scroll.dragging { cursor: grabbing; user-select: none; }
+.tl-scroll.dragging .bar { pointer-events: none; }
+.tl-inner { position: relative; min-width: 100%; }
+.tl-row { display: flex; min-height: 30px; }
+.tl-name { position: sticky; left: 0; z-index: 3; flex: none; width: var(--name-w); background: var(--surface); border-right: 1px solid var(--line);
+  font-size: 12.5px; padding-inline: 12px 8px; display: flex; align-items: center; gap: 6px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.tl-track { position: relative; flex: none; }
+
+.tl-q { min-height: 24px; }
+.q-band { position: absolute; top: 0; bottom: 0; background: var(--band); font-family: var(--font-data); font-weight: 700; font-size: 12px; color: var(--ink); }
+.q-band.alt { background: var(--band-alt); }
+.q-band span { position: sticky; left: calc(var(--name-w) + 8px); padding-inline: 8px; line-height: 24px; white-space: nowrap; }
+.tl-m { min-height: 24px; border-bottom: 1px solid var(--line); }
+.tl-m .tl-name { font-size: 12px; color: var(--muted); }
+.m-tick { position: absolute; top: 0; bottom: 0; padding-left: 4px; font-family: var(--font-data); font-size: 11.5px; line-height: 24px; color: var(--muted); border-left: 1px solid var(--line); white-space: nowrap; }
+.m-tick.q-start { color: var(--ink); font-weight: 700; border-left-color: var(--muted); }
+
+.tl-body { position: relative; padding-block: 4px 8px; }
+.tl-grid { position: absolute; top: 0; bottom: 0; left: var(--name-w); pointer-events: none; }
+.tl-grid i { position: absolute; top: 0; bottom: 0; border-left: 1px solid var(--line); }
+.tl-grid i.q-line { border-left-color: color-mix(in srgb, var(--muted) 45%, transparent); }
+.t-today { position: absolute; top: 0; bottom: 0; border-left: 2px dashed var(--accent); z-index: 2; }
+.t-today span { position: absolute; top: 2px; left: 4px; font-family: var(--font-data); font-size: 11px; font-weight: 700; color: var(--accent); white-space: nowrap; background: var(--surface); padding-inline: 2px; }
+.tl-body .tl-row:hover .tl-name, .tl-body .tl-row:hover { background: color-mix(in srgb, var(--line) 40%, var(--surface)); }
+.bar { position: absolute; top: 7px; height: 16px; border-radius: 4px; background: var(--c); z-index: 1; text-decoration: none; overflow: hidden; }
+.bar span { display: block; padding-inline: 6px; font-family: var(--font-data); font-size: 11px; line-height: 16px; color: var(--on-bar); white-space: nowrap; font-weight: 700; }
+.bar:hover { filter: brightness(1.1); }
+
+.c-tag { font-size: 11px; font-weight: 700; color: var(--muted); border: 1px solid var(--line); border-radius: 4px; padding: 0 4px; flex: none; }
+
+/* 工作區：時間軸 + Inspector */
+.workspace { display: grid; grid-template-columns: minmax(0, 1fr) 16px var(--insp-w, 340px); align-items: start; }
+@media (max-width: 900px) { .workspace { grid-template-columns: minmax(0, 1fr); gap: 16px; } .splitter { display: none; } }
+
+/* 選取狀態 */
+.tl-body .tl-row { cursor: pointer; }
+.tl-body .tl-row.selected, .tl-body .tl-row.selected .tl-name { background: var(--sel); }
+.tl-body .tl-row.selected .tl-name { font-weight: 700; box-shadow: inset 3px 0 0 var(--c); }
+.tl-body .tl-row.selected .bar { box-shadow: 0 0 0 2px var(--surface), 0 0 0 4px var(--c); overflow: visible; }
+.tl-name:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+
+/* Inspector */
+.inspector { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 16px); background: var(--surface); border: 1px solid var(--line); border-radius: 10px;
+  max-height: calc(100vh - 32px); overflow-y: auto; font-size: 13.5px; min-width: 0; }
+@media (max-width: 900px) { .inspector { position: static; max-height: none; } }
+.i-tab { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 8px 14px; border-bottom: 1px solid var(--line);
+  font-family: var(--font-data); font-size: 12px; font-weight: 700; letter-spacing: .1em; color: var(--muted); text-transform: uppercase; }
+.i-nav { display: flex; gap: 4px; }
+.i-nav button { font-size: 12px; padding: 0 8px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 4px; cursor: pointer; }
+.i-nav button:disabled { opacity: .4; cursor: default; }
+.i-head { padding: 14px; display: flex; flex-direction: column; gap: 6px; border-bottom: 1px solid var(--line); }
+.i-type { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 700; color: var(--c); }
+.i-head h2 { margin: 0; font-size: 18px; line-height: 1.35; text-wrap: balance; }
+.i-status { font-size: 12px; color: var(--muted); font-family: var(--font-data); }
+.i-status b { color: var(--c); }
+.comp { border-bottom: 1px solid var(--line); }
+.comp:last-child { border-bottom: 0; }
+.comp summary { list-style: none; cursor: pointer; padding: 8px 14px; font-size: 12px; font-weight: 700; letter-spacing: .06em; color: var(--ink);
+  background: var(--band-alt); display: flex; align-items: center; gap: 8px; user-select: none; }
+.comp summary::-webkit-details-marker { display: none; }
+.comp summary::before { content: "▸"; font-size: 10px; color: var(--muted); transition: transform .15s; }
+.comp[open] summary::before { transform: rotate(90deg); }
+.comp summary .n { margin-left: auto; font-family: var(--font-data); color: var(--muted); font-weight: 500; }
+.comp-body { margin: 0; padding: 10px 14px 12px; display: flex; flex-direction: column; gap: 6px; }
+.prop { display: grid; grid-template-columns: 4.5em minmax(0, 1fr); gap: 8px; align-items: baseline; }
+.prop dt { color: var(--muted); font-size: 12px; }
+.prop dd { margin: 0; overflow-wrap: anywhere; }
+.num { font-family: var(--font-data); font-weight: 700; font-variant-numeric: tabular-nums; }
+.mrt { font-family: var(--font-data); font-size: 11px; font-weight: 700; border: 1.5px solid currentColor; border-radius: 4px; padding: 0 5px; }
+.i-list { margin: 0; padding-left: 18px; }
+.i-list.hl li { color: var(--accent); font-weight: 700; }
+.inspector a { color: var(--accent); }
+.i-empty { padding: 32px 16px; color: var(--muted); text-align: center; }
+@media (prefers-reduced-motion: reduce) { .comp summary::before { transition: none; } }
+footer { font-size: 12px; color: var(--muted); }
+
+/* 時間軸標頭在垂直捲動時固定在上方 */
+.tl-q, .tl-m, .tl-d { position: sticky; z-index: 4; background: var(--surface); }
+.tl-q { top: 0; }
+.tl-m { top: 24px; }
+.tl-q .tl-name, .tl-m .tl-name, .tl-d .tl-name { z-index: 5; }
+
+/* 桌面：整頁剛好塞進視窗，時間軸與 Inspector 各自在內部捲動 */
+@media (min-width: 901px) {
+  html, body { height: 100%; }
+  body { overflow: hidden; }
+  .wrap { height: 100%; padding-block: 20px 12px; gap: 14px; }
+  header, .filters, footer { flex: none; }
+  h1 { font-size: 30px; }
+  .workspace { flex: 1; min-height: 0; align-items: stretch; }
+  .tl { min-height: 0; }
+  .tl-scroll { flex: 1; min-height: 0; overflow: auto; overscroll-behavior: contain; }
+  .inspector { position: static; height: 100%; max-height: none; overflow-y: auto; }
+}
+
+/* 日：週六日底色、每日格線、日期列 */
+.tl-grid .wk { position: absolute; top: 0; bottom: 0; background: color-mix(in srgb, var(--t-expo) 7%, transparent); }
+.tl-grid .wk.sun { background: color-mix(in srgb, var(--accent) 8%, transparent); }
+.tl-grid i.d-line { border-left-color: color-mix(in srgb, var(--line) 55%, transparent); }
+.tl-d { min-height: 24px; top: 48px; border-bottom: 1px solid var(--line); }
+.tl-m:has(+ .tl-d) { border-bottom: 0; }
+.d-cell { position: absolute; top: 0; bottom: 0; display: flex; align-items: center; justify-content: center; gap: 2px;
+  font-family: var(--font-data); font-size: 10.5px; color: var(--muted); border-left: 1px solid color-mix(in srgb, var(--line) 55%, transparent); white-space: nowrap; }
+.d-cell small { font-family: var(--font-body); font-size: 9.5px; }
+.d-cell.sat { color: var(--t-expo); background: color-mix(in srgb, var(--t-expo) 7%, transparent); font-weight: 700; }
+.d-cell.sun { color: var(--accent); background: color-mix(in srgb, var(--accent) 8%, transparent); font-weight: 700; }
+.d-cell.today { box-shadow: inset 0 -2px 0 var(--accent); color: var(--ink); }
+
+/* Inspector：標題區固定，下方內容自己捲動；捲軸常駐，寬度不會因內容長短跳動 */
+.i-tab, .i-head { flex: none; }
+@media (min-width: 901px) {
+  .inspector { display: flex; flex-direction: column; overflow: hidden; }
+  .i-scroll { flex: 1; min-height: 0; overflow-y: scroll; scrollbar-gutter: stable; overscroll-behavior: contain; }
+}
+
+/* 框內微微的半透明黑色內陰影：用蓋在最上層的偽元素畫，才不會被內容的底色擋住 */
+.frame { position: relative; top: auto; }
+.frame::after { content: ""; position: absolute; inset: 0; border-radius: inherit; box-shadow: var(--inner-shadow); pointer-events: none; z-index: 6; }
+.tl-frame { display: flex; flex-direction: column; min-width: 0; min-height: 0; flex: 1; border-radius: 10px; }
+.tl-frame .tl-scroll { flex: 1; }
+
+/* 名稱欄：縣市、地點標籤 + 活動名稱（太長時只截斷名稱） */
+.p-tag { color: var(--ink); font-weight: 500; }
+.tl-name .t-title { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+
+/* 縣市分頁 */
+.city-tabs { display: flex; flex-wrap: wrap; gap: 2px; border-bottom: 1px solid var(--line); flex: none; }
+.city-tab { display: inline-flex; align-items: center; gap: 6px; padding: 6px 16px 8px; border: 0; border-bottom: 2px solid transparent; margin-bottom: -1px;
+  background: none; color: var(--muted); font-size: 15px; font-weight: 700; cursor: pointer; }
+.city-tab:hover { color: var(--ink); }
+.city-tab[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--accent); }
+.city-tab .n { font-family: var(--font-data); font-size: 11px; font-weight: 700; color: var(--muted); background: var(--band); border-radius: 999px; padding: 0 7px; line-height: 18px; }
+.city-tab[aria-selected="true"] .n { color: var(--accent); }
+
+/* 左欄：縣市分頁、篩選、時間軸；右欄 Inspector 從分頁那一列開始一路到底 */
+.main-col { display: flex; flex-direction: column; gap: 14px; min-width: 0; min-height: 0; }
+@media (min-width: 901px) {
+  .main-col .tl { flex: 1; }
+}
+
+/* Inspector 裡的地圖 */
+.insp-body { display: flex; flex-direction: column; min-height: 0; flex: 1; }
+.map-pane { flex: none; border-top: 1px solid var(--line); }
+.map-toggle { font-size: 12px; padding: 0 8px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 4px; cursor: pointer; letter-spacing: 0; text-transform: none; font-family: var(--font-body); font-weight: 500; }
+.map { height: var(--map-h, 220px); background: var(--band); position: relative; z-index: 0; }
+.map .leaflet-control-attribution { font-size: 9px; background: color-mix(in srgb, var(--surface) 80%, transparent); color: var(--muted); }
+.map .leaflet-control-attribution a { color: var(--muted); }
+.map .leaflet-bar a { background: var(--surface); color: var(--ink); border-bottom-color: var(--line); }
+.map-tip { font-family: var(--font-body); font-size: 12px; background: var(--surface); color: var(--ink); border: 1px solid var(--line); box-shadow: none; }
+.map-tip::before { display: none; }
+.leaflet-container { font-family: var(--font-body); }
+
+/* 左右面板之間的拖曳條 */
+.splitter { align-self: stretch; cursor: col-resize; position: relative; touch-action: none; }
+/* 常駐的握把：中間一條直立膠囊，hover／拖曳時變強調色 */
+.splitter::after { content: ""; position: absolute; top: 50%; left: 50%; width: 6px; height: 56px; margin: -28px 0 0 -3px; border-radius: 3px;
+  background: color-mix(in srgb, var(--muted) 55%, transparent); box-shadow: 0 0 0 1px color-mix(in srgb, var(--bg) 60%, transparent); transition: background .15s, height .15s, margin .15s; }
+.splitter::before { content: ""; position: absolute; top: 0; bottom: 0; left: 50%; width: 1px; background: color-mix(in srgb, var(--line) 70%, transparent); }
+.splitter:hover::after, .splitter:focus-visible::after, .splitter.dragging::after { background: var(--accent); height: 80px; margin-top: -40px; }
+.splitter:focus-visible { outline: none; }
+body.resizing { cursor: col-resize; user-select: none; }
+body.resizing iframe, body.resizing .map { pointer-events: none; }
+@media (prefers-reduced-motion: reduce) { .splitter::after { transition: none; } }
+
+/* 地圖與 Inspector 之間的上下拖曳條 */
+.hsplit { height: 14px; position: relative; z-index: 2; cursor: row-resize; touch-action: none; background: color-mix(in srgb, var(--band-alt) 60%, var(--surface)); }
+/* 常駐的握把：中間一條橫躺膠囊 */
+.hsplit::after { content: ""; position: absolute; left: 50%; top: 50%; width: 56px; height: 6px; margin: -3px 0 0 -28px; border-radius: 3px;
+  background: color-mix(in srgb, var(--muted) 55%, transparent); transition: background .15s, width .15s, margin .15s; }
+.hsplit:hover::after, .hsplit:focus-visible::after, .hsplit.dragging::after { background: var(--accent); width: 80px; margin-left: -40px; }
+.hsplit:focus-visible { outline: none; }
+.map-pane:has(.map[hidden]) .hsplit { display: none; }
+body.resizing-v { cursor: row-resize; user-select: none; }
+body.resizing-v .map { pointer-events: none; }
+@media (prefers-reduced-motion: reduce) { .hsplit::after { transition: none; } }
+
+/* 橫條太窄時，日期顯示在橫條右邊 */
+.bar-out { position: absolute; top: 7px; line-height: 16px; font-family: var(--font-data); font-size: 11px; font-weight: 700; color: var(--muted); white-space: nowrap; pointer-events: none; z-index: 1; }
+.tl-row.selected .bar-out { color: var(--ink); margin-left: 4px; }
+
+/* 活動不多時，時間軸也要填滿整個框的高度 */
+.tl-scroll { display: flex; flex-direction: column; }
+.tl-inner { flex: 1 0 auto; display: flex; flex-direction: column; }
+.tl-body { flex: 1 0 auto; display: flex; flex-direction: column; }
+.tl-body .tl-row.tl-fill { flex: 1 0 0; min-height: 0; cursor: default; }
+.tl-body .tl-row.tl-fill:hover { background: transparent; }
+.tl-body .tl-row.tl-fill:hover .tl-name { background: var(--surface); }
+
+/* 資訊、地圖面板的標題列稍微提亮 */
+.i-tab { color: color-mix(in srgb, var(--ink) 80%, var(--muted)); background: color-mix(in srgb, var(--band-alt) 60%, var(--surface)); letter-spacing: .14em; }
+
+/* 資訊面板：密集屬性表 */
+.props { margin: 0; padding: 10px 14px 14px; display: flex; flex-direction: column; gap: 5px; font-size: 13px; line-height: 1.5; }
+.props .prop { grid-template-columns: 3em minmax(0, 1fr); gap: 10px; padding-block: 3px; border-bottom: 1px dashed color-mix(in srgb, var(--line) 70%, transparent); }
+.props .prop:last-child { border-bottom: 0; }
+.props dt { font-size: 11.5px; padding-top: 1px; display: flex; flex-direction: column; }
+.props dt .n { font-family: var(--font-data); font-size: 11px; color: var(--muted); }
+.props .i-list { padding-left: 16px; }
+.props .i-list li + li { margin-top: 1px; }
+.i-head { padding: 10px 14px; gap: 4px; }
+.i-head h2 { font-size: 17px; }
+
+/* 標題列再亮一點 */
+.i-tab { color: var(--ink); background: color-mix(in srgb, var(--band) 92%, var(--ink)); }
+
+.props .sep { color: var(--muted); margin-inline: 6px; }
+.props .loc { display: inline-flex; flex-wrap: wrap; align-items: baseline; gap: 2px 8px; }
+
+/* 捷運站號依路線上色（顏色在 app.js 的 MRT_LINES） */
+.mrt.mrt-line { background: var(--mrt); color: var(--mrt-fg); border-color: var(--mrt); }
+.loc .mrt + .mrt { margin-left: -4px; }
+
+/* 開始日不明（只寫「即日起」）的開始日顯示成灰色 */
+.props .num.unknown { color: var(--muted); font-weight: 500; }
+
+/* AI 查詢涵蓋範圍的界線：之後的時間淡化，提醒資料可能還沒查 */
+.t-covered { position: absolute; top: 0; bottom: 0; border-left: 2px dotted var(--muted);
+  background: repeating-linear-gradient(135deg, transparent 0 6px, color-mix(in srgb, var(--muted) 10%, transparent) 6px 7px); }
+.t-covered span { position: absolute; top: 2px; left: 4px; font-family: var(--font-data); font-size: 11px; font-weight: 700; color: var(--muted); white-space: nowrap; background: var(--surface); padding-inline: 2px; }
+
+/* 類型／地點：固定一行，超出就橫向捲動（滾輪、拖曳），兩端漸層提示還有更多 */
+.fscroll { flex: 1; min-width: 0; display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; overscroll-behavior-x: contain; padding-block: 2px; }
+.fscroll::-webkit-scrollbar { display: none; }
+.fscroll .chip { flex: none; white-space: nowrap; }
+.fscroll.fade-r { mask-image: linear-gradient(to right, #000 calc(100% - 40px), transparent); }
+.fscroll.fade-l { mask-image: linear-gradient(to left, #000 calc(100% - 40px), transparent); }
+.fscroll.fade-l.fade-r { mask-image: linear-gradient(to right, transparent, #000 40px, #000 calc(100% - 40px), transparent); }
+.fscroll.dragging { cursor: grabbing; user-select: none; }
+
+/* 分頁列：左邊縣市分頁，右邊目前縣市的更新日與資料範圍 */
+.tabs-bar { display: flex; align-items: flex-end; justify-content: space-between; gap: 4px 16px; flex-wrap: wrap; border-bottom: 1px solid var(--line); flex: none; }
+.tabs-bar .city-tabs { border-bottom: 0; }
+.city-meta { font-family: var(--font-data); font-size: 12px; color: var(--muted); padding-bottom: 9px; white-space: nowrap; }
+.city-meta b { color: var(--ink); font-weight: 700; }
+.city-meta .sep { margin-inline: 6px; }
+
+/* 關於網站（可收合，預設收起） */
+.about { flex: none; border-top: 1px solid var(--line); }
+.about > summary { list-style: none; cursor: pointer; user-select: none; border-bottom: 0; }
+.about > summary::-webkit-details-marker { display: none; }
+.about[open] > summary { border-bottom: 1px solid var(--line); }
+.about-arrow { font-size: 10px; transition: transform .15s; }
+.about[open] .about-arrow { transform: rotate(90deg); }
+.about-body { max-height: 260px; overflow-y: auto; padding: 10px 14px 12px; font-size: 12.5px; line-height: 1.6; color: var(--ink); display: flex; flex-direction: column; gap: 8px; }
+.about-body p { margin: 0; }
+.about-table { border-collapse: collapse; font-size: 12px; width: 100%; }
+.about-table th, .about-table td { text-align: left; padding: 3px 6px 3px 0; border-bottom: 1px dashed color-mix(in srgb, var(--line) 70%, transparent); font-weight: 500; }
+.about-table thead th { color: var(--muted); font-size: 11px; }
+.about-table tbody th { font-weight: 700; }
+.about-note { color: var(--muted); }
+.about-note b { color: var(--accent); }
+.about-credit { font-size: 11px; color: var(--muted); }
+@media (prefers-reduced-motion: reduce) { .about-arrow { transition: none; } }
+
+/* 地圖標題列可點擊收合 */
+.map-head { width: 100%; border: 0; border-bottom: 1px solid var(--line); cursor: pointer; font: inherit; font-family: var(--font-data); font-size: 12px; font-weight: 700; text-align: left; }
+.map-head[aria-expanded="true"] .about-arrow { transform: rotate(90deg); }
+.map-head[aria-expanded="false"] { border-bottom: 0; }
+.map-head:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+
+/* 平板、手機（粗指標）：握把與拖曳範圍加大 */
+@media (pointer: coarse) {
+  .workspace { grid-template-columns: minmax(0, 1fr) 28px var(--insp-w, 340px); }
+  .splitter::after { width: 10px; height: 72px; margin: -36px 0 0 -5px; border-radius: 5px; }
+  .hsplit { height: 24px; }
+  .hsplit::after { width: 72px; height: 10px; margin: -5px 0 0 -36px; border-radius: 5px; }
+}
+@media (pointer: coarse) and (max-width: 900px) { .workspace { grid-template-columns: minmax(0, 1fr); } }
+.drag-scrolling { cursor: grabbing; user-select: none; }
+@media (prefers-reduced-motion: reduce) { .splitter::after, .hsplit::after { transition: none; } }

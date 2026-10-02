@@ -1,0 +1,56 @@
+{
+  "site": "ACG 檔期表",
+  "updated": "2026-10-02",
+  "types": {
+    "popup": {
+      "label": "快閃店"
+    },
+    "expo": {
+      "label": "動漫展"
+    },
+    "doujin": {
+      "label": "同人／市集"
+    },
+    "cafe": {
+      "label": "主題餐廳"
+    }
+  },
+  "cities": {
+    "taipei": {
+      "label": "台北",
+      "center": [
+        25.0418,
+        121.5435
+      ],
+      "coveredUntil": "2027-08-31",
+      "updated": "2026-10-02"
+    },
+    "taichung": {
+      "label": "台中",
+      "center": [
+        24.1477,
+        120.6736
+      ],
+      "coveredUntil": "2027-08-31",
+      "updated": "2026-10-02"
+    },
+    "tainan": {
+      "label": "台南",
+      "center": [
+        22.9908,
+        120.2133
+      ],
+      "coveredUntil": "2027-08-31",
+      "updated": "2026-10-02"
+    },
+    "kaohsiung": {
+      "label": "高雄",
+      "center": [
+        22.6273,
+        120.3014
+      ],
+      "coveredUntil": "2027-03-31",
+      "updated": "2026-10-02"
+    }
+  }
+}

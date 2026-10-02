@@ -1,0 +1,298 @@
+{
+  "dream": {
+    "city": "kaohsiung",
+    "label": "夢時代",
+    "mrt": "C5",
+    "addr": "高雄市前鎮區中華五路789號",
+    "lat": 22.595005,
+    "lng": 120.304914
+  },
+  "dome": {
+    "city": "kaohsiung",
+    "label": "高雄巨蛋",
+    "mrt": "R14",
+    "addr": "高雄市左營區博愛二路757號",
+    "lat": 22.668607,
+    "lng": 120.30191
+  },
+  "station": {
+    "city": "kaohsiung",
+    "label": "高雄車站",
+    "mrt": "R11",
+    "addr": "高雄市三民區建國二路318號",
+    "lat": 22.639442,
+    "lng": 120.304021
+  },
+  "zuoying": {
+    "city": "kaohsiung",
+    "label": "新光三越左營",
+    "mrt": "R16",
+    "addr": "高雄市左營區高鐵路123號",
+    "lat": 22.6873,
+    "lng": 120.3077
+  },
+  "fmsa": {
+    "city": "kaohsiung",
+    "label": "美麗島站",
+    "mrt": "R10/O5",
+    "addr": "高雄市新興區中山一路115號",
+    "lat": 22.6314,
+    "lng": 120.3019
+  },
+  "pier2": {
+    "city": "kaohsiung",
+    "label": "駁二",
+    "mrt": "C11",
+    "addr": "高雄市鹽埕區大勇路1號",
+    "lat": 22.619526,
+    "lng": 120.281618
+  },
+  "qianjin": {
+    "city": "kaohsiung",
+    "label": "前金區",
+    "mrt": "",
+    "addr": "高雄市前金區大同二路23號1樓",
+    "lat": 22.622026,
+    "lng": 120.293361
+  },
+  "tn-skm-zs": {
+    "city": "tainan",
+    "label": "新光三越台南中山店",
+    "mrt": "",
+    "addr": "台南市中西區中山路162號",
+    "lat": 22.995141,
+    "lng": 120.210019
+  },
+  "tn-skm-xbm": {
+    "city": "tainan",
+    "label": "新光三越台南小北門",
+    "mrt": "",
+    "addr": "台南市北區西門路四段151號",
+    "lat": 23.009539,
+    "lng": 120.208018
+  },
+  "tn-tendrum": {
+    "city": "tainan",
+    "label": "十鼓文創園區",
+    "mrt": "",
+    "addr": "台南市仁德區文華路二段326號",
+    "lat": 22.938472,
+    "lng": 120.229142
+  },
+  "tn-icc": {
+    "city": "tainan",
+    "label": "大臺南會展中心",
+    "mrt": "",
+    "addr": "台南市歸仁區歸仁十二路3號",
+    "lat": 22.920876,
+    "lng": 120.285523
+  },
+  "tn-tccp": {
+    "city": "tainan",
+    "label": "臺南文化創意產業園區",
+    "mrt": "",
+    "addr": "台南市東區北門路二段16號",
+    "lat": 22.99948,
+    "lng": 120.21273
+  },
+  "tc-chungyo": {
+    "city": "taichung",
+    "label": "中友百貨",
+    "mrt": "",
+    "addr": "台中市北區三民路三段161號",
+    "lat": 24.152267,
+    "lng": 120.684712
+  },
+  "tc-skm": {
+    "city": "taichung",
+    "label": "新光三越台中中港店",
+    "mrt": "",
+    "addr": "台中市西屯區台灣大道三段301號",
+    "lat": 24.165,
+    "lng": 120.644
+  },
+  "tc-lalaport": {
+    "city": "taichung",
+    "label": "LaLaport台中",
+    "mrt": "",
+    "addr": "台中市東區進德路600號",
+    "lat": 24.134838,
+    "lng": 120.69211
+  },
+  "tc-tcrp": {
+    "city": "taichung",
+    "label": "臺中驛鐵道文化園區",
+    "mrt": "",
+    "addr": "台中市中區臺灣大道一段1號",
+    "lat": 24.136728,
+    "lng": 120.685119
+  },
+  "tc-cityhall": {
+    "city": "taichung",
+    "label": "台灣大道市政大樓",
+    "mrt": "",
+    "addr": "台中市西屯區台灣大道三段99號",
+    "lat": 24.161724,
+    "lng": 120.646842
+  },
+  "tc-wordslive": {
+    "city": "taichung",
+    "label": "Words Live 站前館",
+    "mrt": "",
+    "addr": "台中市東區自由二街91號",
+    "lat": 24.1372,
+    "lng": 120.688
+  },
+  "tc-cip": {
+    "city": "taichung",
+    "label": "台中文創園區",
+    "mrt": "",
+    "addr": "台中市南區復興路三段362號",
+    "lat": 24.1335,
+    "lng": 120.6812
+  },
+  "tc-ntus": {
+    "city": "taichung",
+    "label": "臺體大體育館",
+    "mrt": "",
+    "addr": "台中市北區雙十路一段16號",
+    "lat": 24.1497,
+    "lng": 120.6877
+  },
+  "tp-skm-a9": {
+    "city": "taipei",
+    "label": "新光三越 A9",
+    "mrt": "BL18",
+    "addr": "台北市信義區松高路9號",
+    "lat": 25.0388,
+    "lng": 121.5672
+  },
+  "tp-syntrend": {
+    "city": "taipei",
+    "label": "三創生活園區",
+    "mrt": "BL14",
+    "addr": "台北市中正區市民大道三段2號",
+    "lat": 25.045112,
+    "lng": 121.531149
+  },
+  "tp-huashan": {
+    "city": "taipei",
+    "label": "華山1914文創園區",
+    "mrt": "BL14",
+    "addr": "台北市中正區八德路一段1號",
+    "lat": 25.044609,
+    "lng": 121.529183
+  },
+  "tp-songshan": {
+    "city": "taipei",
+    "label": "松山文創園區",
+    "mrt": "BL17",
+    "addr": "台北市信義區光復南路133號",
+    "lat": 25.043723,
+    "lng": 121.560797
+  },
+  "tp-skm-nanxi": {
+    "city": "taipei",
+    "label": "新光三越 南西一館",
+    "mrt": "R11",
+    "addr": "台北市中山區南京西路12號",
+    "lat": 25.0525,
+    "lng": 121.521
+  },
+  "tp-qsquare-vieshow": {
+    "city": "taipei",
+    "label": "京站威秀影城",
+    "mrt": "BL12",
+    "addr": "台北市大同區市民大道一段209號5樓",
+    "lat": 25.049079,
+    "lng": 121.518432
+  },
+  "tp-breeze": {
+    "city": "taipei",
+    "label": "微風廣場",
+    "mrt": "BL15",
+    "addr": "台北市松山區復興南路一段39號",
+    "lat": 25.045955,
+    "lng": 121.544811
+  },
+  "tp-eslite-r79": {
+    "city": "taipei",
+    "label": "誠品R79 中山地下書街",
+    "mrt": "R11",
+    "addr": "台北市大同區南京西路16號B1",
+    "lat": 25.052,
+    "lng": 121.52
+  },
+  "tp-fanfans-ximen": {
+    "city": "taipei",
+    "label": "FANFANS CAFÉ 西門店",
+    "mrt": "BL11",
+    "addr": "台北市萬華區昆明街92-1號5樓",
+    "lat": 25.044,
+    "lng": 121.505
+  },
+  "tp-cayenne-zhongxiao": {
+    "city": "taipei",
+    "label": "凱岩咖啡 忠孝店",
+    "mrt": "",
+    "addr": "台北市大安區忠孝東路四段205巷7弄7號1樓",
+    "lat": 25.042,
+    "lng": 121.553
+  },
+  "tp-loushi": {
+    "city": "taipei",
+    "label": "陋室五月小風景",
+    "mrt": "",
+    "addr": "台北市中山區中山北路二段116巷12號",
+    "lat": 25.06,
+    "lng": 121.523
+  },
+  "tp-dart": {
+    "city": "taipei",
+    "label": "d/art",
+    "mrt": "BL11",
+    "addr": "台北市萬華區武昌街二段14號3樓",
+    "lat": 25.044321,
+    "lng": 121.508143
+  },
+  "tp-lalaport-nangang": {
+    "city": "taipei",
+    "label": "LaLaport 南港",
+    "mrt": "BL22",
+    "addr": "台北市南港區經貿二路131號",
+    "lat": 25.058899,
+    "lng": 121.61667
+  },
+  "tp-yulon": {
+    "city": "taipei",
+    "label": "新店裕隆城",
+    "mrt": "",
+    "addr": "新北市新店區中興路三段70號",
+    "lat": 24.978111,
+    "lng": 121.546777
+  },
+  "tp-expo-zhengyan": {
+    "city": "taipei",
+    "label": "花博公園爭艷館",
+    "mrt": "R13",
+    "addr": "台北市中山區玉門街1號",
+    "lat": 25.07,
+    "lng": 121.52
+  },
+  "tp-ntu-gym": {
+    "city": "taipei",
+    "label": "台大綜合體育館",
+    "mrt": "G07",
+    "addr": "台北市大安區羅斯福路四段1號",
+    "lat": 25.021521,
+    "lng": 121.534106
+  },
+  "tp-hakuishi": {
+    "city": "taipei",
+    "label": "白石畫廊 台北",
+    "mrt": "",
+    "addr": "台北市內湖區基湖路1號1F",
+    "lat": 25.082,
+    "lng": 121.559
+  }
+}
