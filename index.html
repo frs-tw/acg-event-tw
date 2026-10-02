@@ -2,7 +2,23 @@
 <html lang="zh-Hant">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="viewport" id="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script>
+  // 高資訊密度：螢幕比 1000px 窄的裝置（手機、直拿的平板）一律用 1000px 寬排版，整個桌面版縮小顯示，可兩指放大
+  (function () {
+    var DESKTOP_W = 1000, vp = document.getElementById("viewport");
+    var land = matchMedia("(orientation: landscape)");
+    function fit() {
+      // 螢幕實際寬度：橫拿取長邊、直拿取短邊（iOS 的 screen.width 不會隨方向改變）
+      var w = land.matches ? Math.max(screen.width, screen.height) : Math.min(screen.width, screen.height);
+      vp.setAttribute("content", w < DESKTOP_W
+        ? "width=" + DESKTOP_W + ", viewport-fit=cover"
+        : "width=device-width, initial-scale=1, viewport-fit=cover");
+    }
+    fit();
+    land.addEventListener ? land.addEventListener("change", fit) : land.addListener(fit);
+  })();
+</script>
 <title>ACG 檔期表</title>
 <meta name="description" content="動漫展、快閃店、同人活動與主題餐廳的檔期時間軸，可依縣市、類型與地點篩選。">
 <link rel="preconnect" href="https://fonts.googleapis.com">

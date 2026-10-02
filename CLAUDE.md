@@ -8,7 +8,6 @@
 ```
 ACG-Site/
 ├── CLAUDE.md          # 本檔：專案規則
-├── README.md          # 本機預覽與部署說明
 ├── prompt.md          # 更新活動資料的提示詞
 ├── index.html         # 頁面骨架
 ├── style.css          # 樣式（顏色都是 :root 的 token，含深色模式）
@@ -70,4 +69,6 @@ ACG-Site/
 - 新縣市：在 `meta.json` 的 `cities` 加代碼，地點加到 `places.json` 並填 `city`。
 - 不引入框架或建置工具，保持可直接部署到任何靜態主機。
 - 外部資源只用 Google Fonts；其他都放在本專案內。
-- 修改後用本機伺服器預覽（見 README），確認手機寬度（約 400px）不會橫向捲動。
+- 本機預覽：直接雙擊 `index.html` 讀不到 `data/`，要在專案資料夾跑 `python -m http.server 8000` 再開 http://localhost:8000。
+- 部署：整個資料夾就是網站根目錄，可直接放 GitHub Pages（repo：`frs-tw/acg-event-tw`）、Cloudflare Pages 或 Netlify，不需要建置。
+- 手機與直拿的平板（螢幕寬度不到 1000px）會用 1000px 寬排版縮小顯示桌面版，門檻在 `index.html` 開頭的 `DESKTOP_W`。

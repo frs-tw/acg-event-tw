@@ -60,7 +60,7 @@ Promise.all([getJSON("data/meta.json"), getJSON("data/places.json"), getJSON("da
     zoomToMonths(3, VIEW0);
   })
   .catch(() => {
-    $("insp-body").innerHTML = `<div class="i-empty">讀不到資料。直接雙擊開啟 index.html 會被瀏覽器擋下，請用本機伺服器開啟（見 README）。</div>`;
+    $("insp-body").innerHTML = `<div class="i-empty">讀不到資料。直接雙擊開啟 index.html 會被瀏覽器擋下，請在資料夾執行 python -m http.server 後用 localhost 開啟。</div>`;
   });
 
 /* ---------- 縣市分頁 ---------- */
